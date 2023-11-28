@@ -59,4 +59,35 @@ if (isset($_POST['new_user_add'])) {
 
 
 
+//Sign up
+
+if (isset($_POST['signup_btn'])) {
+
+    $user_name= htmlspecialchars($_POST['user_name']);
+    $user_pass= htmlspecialchars($_POST['user_pass']);
+
+    if (!empty($user_name) and !empty($user_pass)) {
+
+        $data = SelectData('fls_users', "WHERE user_name='$user_name' ");
+        $result = $data->fetch_object();
+        if ($data->num_rows == 0) {
+            $sql = "INSERT INTO `fls_users` (`user_name`,`user_pass`) VALUES ('$user_name','$user_pass')";
+            if ($conn->query($sql) === TRUE) {
+                echo "Data inserted successfully";
+                $_SESSION['admin_user'] = $user_name;
+                Reconect('index.php');
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        } else {
+            $mess = "Username already exists";
+        }
+    
+    } else {
+        $mess = "All fill are required fields";
+    }
+}
+
+
+
 ?>

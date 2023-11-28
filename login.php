@@ -34,7 +34,7 @@ require_once "php/users_sql.php";
                                 <img src="assets/images/logo/logo.png">
                             </div>
                             <h4>Hello! let's get started</h4>
-                            <h6 class=" font-weight-light">Sign in to continue.</h6>
+                            <h6 class=" font-weight-light">You have not account, just <a href="signup.php">SignUp</a></h6>
                             <span class="text-danger fw-bold"><?php if (isset($mess)) {
                                                                     echo $mess;
                                                                 } ?></span>

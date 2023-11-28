@@ -48,6 +48,12 @@ function UserData($id, $data){
     return $row->$data;
 }
 
+//User Data
+function LoginUserData($data){
+    $row = SelectData("fls_users", "where user_name='{$_SESSION['admin_user']}'")->fetch_object();
+    return $row->$data;
+}
+
 
 
 

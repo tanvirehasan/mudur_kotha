@@ -14462,10 +14462,8 @@ dl {
 }
 
 
-
-
 body, h1, h2, h3, p, b, a{
-font-family: 'Tiro Bangla', Arial !important;
+font-family: 'Tiro Bangla', Arial, Helvetica, sans-serif !important;
 }
 
 .form_tabkle table th{

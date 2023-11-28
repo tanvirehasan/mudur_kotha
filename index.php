@@ -21,7 +21,7 @@
         <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
         <h4 class="font-weight-normal mb-3">Total Participations <i class="mdi mdi-account-multiple mdi-24px float-right"></i>
         </h4>
-        <h2 class="mb-5"><?= rowcount('participants_list', '') ?></h2>
+        <h2 class="mb-5">0</h2>
         <h6 class="card-text"></h6>
       </div>
     </div>
@@ -32,7 +32,7 @@
         <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
         <h4 class="font-weight-normal mb-3">Total Clients <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
         </h4>
-        <h2 class="mb-5"><?= rowcount('clients', '') ?></h2>
+        <h2 class="mb-5">0</h2>
         <h6 class="card-text"></h6>
       </div>
     </div>
@@ -43,7 +43,7 @@
         <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
         <h4 class="font-weight-normal mb-3">Total Workshop <i class="mdi mdi-border-color mdi-24px float-right"></i>
         </h4>
-        <h2 class="mb-5"><?= rowcount('event', '') ?></h2>
+        <h2 class="mb-5">0</h2>
         <h6 class="card-text">Increased by 5%</h6>
       </div>
     </div>
@@ -91,24 +91,7 @@
             </thead>
             <tbody>
 
-              <?php
-              $i = 1;
-              $data = SelectData("event", 'limit 5');
-              while ($row = $data->fetch_object()) { ?>
-                <tr>
-                  <td><?= $i ?></td>
-                  <td class="py-1">
-                    <img src="../assets/image/<?= $row->banner ?>" alt="image" />
-                  </td>
-                  <td> <?= $row->event_id ?> </td>
-                  <td> <a class="nav-link" href="event_details.php?id=<?= $row->event_id ?>"> <?= $row->event_title ?> </a> </td>
-                  <td><?= $row->date_time ?></td>
-                  <td><?= $row->client_id . " | " . client_name($row->client_id, "name");  ?> </td>
-                  <td> <?= $row->event_location ?> </td>
-                  <td> <a href="<?= $_SERVER['PHP_SELF'] . "?edit_id=" . $row->event_id ?>">Edit</a> | <a href="<?= $_SERVER['PHP_SELF'] . "?delete_id=" . $row->event_id ?>">Delete</a> </td>
-                </tr>
-              <?php $i++;
-              } ?>
+              
 
             </tbody>
           </table>
