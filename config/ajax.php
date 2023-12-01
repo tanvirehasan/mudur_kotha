@@ -173,6 +173,52 @@ if (isset($_POST['table18_id'])) {
 
 
 
+//atem_to_kitpotog_19
+if (isset($_POST['table19_id'])) {
+
+    $table_id = $_POST['table19_id'];
+    $kit_sokkha = $_POST['kit_sokkha'];
+    $niyoton_bikolp = $_POST['niyoton_bikolp'];
+    $costforatem = $_POST['costforatem'];
+
+    $insert = "UPDATE atem_to_kitpotog_19 SET     
+    `kit_sokkha`='$kit_sokkha',`niyoton_bikolp`='$niyoton_bikolp', `costforatem`='$costforatem'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+//rogerbebostha_20
+if (isset($_POST['table20_id'])) {
+
+    $table_id = $_POST['table20_id'];
+    $roge_akrantu_mashi = $_POST['roge_akrantu_mashi'];
+    $niramoy_bikolp = $_POST['niramoy_bikolp'];
+    $cost_taka = $_POST['cost_taka'];
+
+    $insert = "UPDATE rogerbebostha_20 SET     
+    `roge_akrantu_mashi`='$roge_akrantu_mashi',`niramoy_bikolp`='$niramoy_bikolp', `cost_taka`='$cost_taka'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+
+
 
 
 
