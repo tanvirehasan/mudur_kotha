@@ -4,7 +4,7 @@
 <!-- content-wrapper ends -->
 <footer class="footer">
   <div class="container-fluid d-flex justify-content-between">
-    <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Dr Sakhawat <?php echo date('Y') ?></span>
+    <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © Dr. Mohammed Sakhawat Hossain <?php echo date('Y') ?></span>
     <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Developed by <a href="https://www.tanvirr.com" target="_blank">Tanvir </a></span>
   </div>
 </footer>

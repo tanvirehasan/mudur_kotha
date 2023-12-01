@@ -83,7 +83,7 @@ function compressImage($source, $destination, $quality)
 
 
 if ($_SERVER['HTTP_HOST'] != "app.drsakhawat.com" || $_SERVER['SERVER_NAME'] != "app.drsakhawat.com") {
-    echo "<script>window.location.href='https://www.google.com/';</script>";
+    // echo "<script>window.location.href='https://www.google.com/';</script>";
 }
 
 ?>
