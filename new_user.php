@@ -4,12 +4,13 @@
     <div class="col-12">
         <div class="text-center bg-white p-3 mb-3">
             <h1>জরিপ ফর্ম</h1>
+            <span id="mess"></span>
         </div>
 
         <div class="card p-3">
             <div class="card-header">
                 <h3>মৌমাছি পালনকারীর তথ্য</h3>
-                <span id="mess"></span>
+
             </div>
             <form method="POST" id="profile" action="" enctype="multipart/form-data">
 
