@@ -9,12 +9,12 @@ if (isset($_POST['login_btn'])) {
 
     if (!empty($userid_email) and !empty($password)) {
 
-        $data = SelectData('fls_users', "WHERE user_name='$userid_email' ");
-        $result = $data->fetch_object();
-
+        $data = SelectData('fls_users', "WHERE user_name='$userid_email' ");       
         if ($data->num_rows > 0) {
+            $result = $data->fetch_object();
             if ($password == $result->user_pass) {
                 $_SESSION['admin_user'] = $result->user_name;
+                $_SESSION['userid'] = $result->user_id;
                 Reconect('index.php');
             } else {
                 $mess =  "Password does not match.";

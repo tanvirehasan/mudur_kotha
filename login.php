@@ -1,14 +1,9 @@
 <?php
-session_start();
-require_once "config/db_conn.php";
-require_once "config/function.php";
-require_once "php/users_sql.php";
+    session_start();
+    require_once "config/db_conn.php";
+    require_once "config/function.php";
+    require_once "php/users_sql.php";
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -50,10 +50,14 @@ function UserData($id, $data){
 
 //User Data
 function LoginUserData($data){
-    $row = SelectData("fls_users", "where user_name='{$_SESSION['admin_user']}'")->fetch_object();
+    $row = SelectData("fls_users", "    
+    INNER JOIN divisions ON fls_users.Vibag_address=divisions.id  
+    INNER JOIN districts ON fls_users.zilla_address=districts.id  
+    INNER JOIN upazilas ON  fls_users.upzilla_address=upazilas.id
+    where user_name='{$_SESSION['admin_user']}'
+    ")->fetch_object();
     return $row->$data;
 }
-
 
 
 
@@ -79,24 +83,6 @@ function compressImage($source, $destination, $quality)
     imagejpeg($image, $destination, $quality);
     return $destination;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

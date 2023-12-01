@@ -4,7 +4,7 @@
 
     <div class="col-12">
         <div class="text-center bg-white table-title">
-            <h2 class="p-2 m-0 pt-5">কীটপতঙ্গের জন্য নেওয়া ব্যবস্থা</h2>
+            <h2 class="p-2 m-0 pt-5">রোগের জন্য নেওয়া ব্যবস্থা</h2>
         </div>
 
         <div class="card p-3 form_tabkle">

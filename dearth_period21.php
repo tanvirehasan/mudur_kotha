@@ -4,7 +4,7 @@
 
     <div class="col-12">
         <div class="text-center bg-white table-title">
-            <h2 class="p-2 m-0 pt-5">ওভাবের সময় ব্যবস্থাপনা</h2>
+            <h2 class="p-2 m-0 pt-5">অভাবের সময় ব্যবস্থাপনা</h2>
         </div>
 
         <div class="card p-3 form_tabkle">

@@ -29,6 +29,18 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="new_user.php">প্রোফাইল</a></li>
+            <li class="nav-item"> <a class="nav-link" href="kitpotong_f12.php">মৌমাছির খামারে কীটপতঙ্গ</a></li>
+            <li class="nav-item"> <a class="nav-link" href="khamer_rug13.php">খামারে পরিলক্ষিত রোগ</a></li>
+            <li class="nav-item"> <a class="nav-link" href="product_info17.php">পন্য সম্পর্কিত তথ্য</a></li>
+            <li class="nav-item"> <a class="nav-link" href="fuler_utts18.php">ফুল উৎস</a></li>
+            <li class="nav-item"> <a class="nav-link" href="bebostha_neya19.php">কীটপতঙ্গের জন্য নেওয়া ব্যবস্থা</a></li>
+            <li class="nav-item"> <a class="nav-link" href="ruger_bebostha20.php">রোগের জন্য নেওয়া ব্যবস্থা</a></li>
+            <li class="nav-item"> <a class="nav-link" href="dearth_period21.php">অভাবের সময় ব্যবস্থাপনা</a></li>
+            <li class="nav-item"> <a class="nav-link" href="training_23.php">প্রশিক্ষণ</a></li>
+            <li class="nav-item"> <a class="nav-link" href="rani_24.php">রানীর পরিস্থতি</a></li>
+            <li class="nav-item"> <a class="nav-link" href="raza_25.php">ড্রোন পরিস্থতি</a></li>
+            <li class="nav-item"> <a class="nav-link" href="lalun_palon_somosa_26.php">মৌমাছি পালন সংক্রান্ত সমস্যা</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pruduct_sell_27.php">পন্য বিপণন</a></li>
           </ul>
         </div>
       </li>

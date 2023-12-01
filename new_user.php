@@ -1,11 +1,4 @@
-<?php
-
-require_once "inc/header.php"
-
-
-
-?>
-
+<?php require_once "inc/header.php"; ?>
 <div class="row justify-content-md-center">
 
     <div class="col-12">
@@ -17,10 +10,13 @@ require_once "inc/header.php"
             <div class="card-header">
                 <h3>মৌমাছি পালনকারীর তথ্য</h3>
             </div>
-            <form action="" method="post">
+            <form method="POST" id="profile" action="" enctype="multipart/form-data">
+
+                <p id="mess"></p>
 
                 <table class="table">
                     <tr>
+                        <input id="id" name="id" value="<?= LoginUserData('user_id') ?>" type="hidden">
                         <td><label for="name">নাম</label></td>
                         <td><input id="name" name="name" value="<?= LoginUserData('name') ?>" type="text" class="form-control"></td>
                     </tr>
@@ -34,20 +30,36 @@ require_once "inc/header.php"
                     </tr>
                     <tr>
                         <td><label for="address_1">ঠিকানা</label></td>
-                        <td><input id="address_1" type="text" class="form-control"></td>
+                        <td><input id="address_1" name="address_1" value="<?= LoginUserData('address_1') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
                         <td><label for="name">ঠিকানা</label></td>
                         <td class="d-flex">
-                            <input id="Vibag_address" name="Vibag_address" placeholder="বিভাগ" type="text" class="form-control">
-                            <input id="zilla_address" name="zilla_address" placeholder="জেলা" type="text" class="form-control">
-                            <input id="upzilla_address" name="upzilla_address" placeholder="থানা" type="text" class="form-control">
+
+                            <select name="Vibag_address" id="Vibag_address" class="form-control">
+                                <option value="<?= LoginUserData('Vibag_address') ?>"><?= LoginUserData('div_bn_name') ?></option>
+                                <?php //php start
+                                $data = SelectData("divisions", "");
+                                while ($row_v = $data->fetch_object()) { ?>
+                                    <option value="<?= $row_v->id ?>"><?= $row_v->div_bn_name ?></option>
+                                <?php } ?>
+                                <!-- php end  -->
+                            </select>
+
+                            <select name="zilla_address" id="zilla_address" class="form-control">
+                                <option value="<?= LoginUserData('zilla_address') ?>"><?= LoginUserData('dis_bn_name') ?></option>
+                            </select>
+
+                            <select name="upzilla_address" id="upzilla_address" class="form-control">
+                                <option value="<?= LoginUserData('upzilla_address') ?>"><?= LoginUserData('up_bn_name') ?></option>
+                            </select>
+
                         </td>
 
                     </tr>
                     <tr>
                         <td><label for="aponar_boys">বয়স</label></td>
-                        <td><input id="aponar_boys" name="aponar_boys" type="text" class="form-control"></td>
+                        <td><input id="aponar_boys" name="aponar_boys" value="<?= LoginUserData('aponar_boys') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
                         <td><label for="your_sex">লিঙ্গ</label></td>
@@ -76,24 +88,29 @@ require_once "inc/header.php"
                     </tr>
                     <tr>
                         <td><label for="fmaily_members">পরিবারের সদস্য সংখ্যা</label></td>
-                        <td><input id="fmaily_members" name="fmaily_members" type="text" class="form-control"></td>
+                        <td><input id="fmaily_members" name="fmaily_members" value="<?= LoginUserData('fmaily_members') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
                         <td><label for="bikolp_pesha">বিকল্প পেশা</label></td>
-                        <td><input id="bikolp_pesha" name="bikolp_pesha" type="text" class="form-control"></td>
+                        <td><input id="bikolp_pesha" name="bikolp_pesha" value="<?= LoginUserData('bikolp_pesha') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
                         <td><label for="educational_qualification">শিক্ষাগত যোগ্যতা</label></td>
-                        <td><input id="educational_qualification" name="educational_qualification" type="text" class="form-control"></td>
+                        <td><input id="educational_qualification" name="educational_qualification" value="<?= LoginUserData('educational_qualification') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td><label for="profile_pic">ছবি</label></td>
+                        <td><label for="profile_pic">ছবি</label>
+
+                            <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 100px; height:100px; border-radius:0px; margin-left:20px">
+
+                        </td>
+                        <input id="id" name="profile_pic2" value="<?= LoginUserData('profile_pic') ?>" type="hidden">
                         <td><input id="profile_pic" name="profile_pic" type="file" class="form-control"></td>
                     </tr>
 
                     <tr>
                         <td></td>
-                        <td class="text-end"><button class="btn btn-warning" id="submit">Update</button></td>
+                        <td class="text-end"><button type="submit" id="submit" class="btn btn-warning">Update</button></td>
                     </tr>
 
 
@@ -106,16 +123,5 @@ require_once "inc/header.php"
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <?php require_once "inc/footer.php" ?>

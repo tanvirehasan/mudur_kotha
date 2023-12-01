@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_user'])) {
   echo "<script> location.replace('login.php')</script>";
 } else {
   $userid = $_SESSION['admin_user'];
+  $id_user = $_SESSION['userid'];
 }
 require_once "config/db_conn.php";
 require_once "config/function.php";
@@ -25,6 +26,8 @@ require_once "config/function.php";
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;400;800&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,600;1,800&family=Tiro+Bangla&display=swap" rel="stylesheet">
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/ajax.js"></script>
 </head>
 
 <body>
