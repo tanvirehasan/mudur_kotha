@@ -9,6 +9,7 @@
         <div class="card p-3">
             <div class="card-header">
                 <h3>মৌমাছি পালনকারীর তথ্য</h3>
+                <?= $id_user ?>
             </div>
             <form method="POST" id="profile" action="" enctype="multipart/form-data">
 
@@ -16,7 +17,7 @@
 
                 <table class="table">
                     <tr>
-                        <input id="id" name="id" value="<?= LoginUserData('user_id') ?>" type="hidden">
+                        <input id="id" name="id" value="<?= $id_user ?>" type="hidden">
                         <td><label for="name">নাম</label></td>
                         <td><input id="name" name="name" value="<?= LoginUserData('name') ?>" type="text" class="form-control"></td>
                     </tr>
@@ -37,7 +38,9 @@
                         <td class="d-flex">
 
                             <select name="Vibag_address" id="Vibag_address" class="form-control">
-                                <option value="<?= LoginUserData('Vibag_address') ?>"><?= LoginUserData('div_bn_name') ?></option>
+                                <option value="<?= $deve = LoginUserData('Vibag_address') ?>">
+                                    <?php echo $row = SelectData("divisions", "WHERE id='$deve'")->fetch_object()->div_bn_name; ?>
+                                </option>
                                 <?php //php start
                                 $data = SelectData("divisions", "");
                                 while ($row_v = $data->fetch_object()) { ?>
@@ -47,11 +50,15 @@
                             </select>
 
                             <select name="zilla_address" id="zilla_address" class="form-control">
-                                <option value="<?= LoginUserData('zilla_address') ?>"><?= LoginUserData('dis_bn_name') ?></option>
+                                <option value="<?= $did = LoginUserData('zilla_address') ?>">
+                                    <?php echo $row = SelectData("districts", "WHERE id='$did'")->fetch_object()->dis_bn_name; ?>
+                                </option>
                             </select>
 
                             <select name="upzilla_address" id="upzilla_address" class="form-control">
-                                <option value="<?= LoginUserData('upzilla_address') ?>"><?= LoginUserData('up_bn_name') ?></option>
+                                <option value="<?= $uid=LoginUserData('upzilla_address') ?>">
+                                    <?php echo $row = SelectData("upazilas", "WHERE id='$uid'")->fetch_object()->up_bn_name; ?>
+                                </option>
                             </select>
 
                         </td>
