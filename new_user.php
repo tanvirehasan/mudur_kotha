@@ -9,11 +9,11 @@
         <div class="card p-3">
             <div class="card-header">
                 <h3>মৌমাছি পালনকারীর তথ্য</h3>
-                <?= $id_user ?>
+                <span id="mess"></span>
             </div>
             <form method="POST" id="profile" action="" enctype="multipart/form-data">
 
-                <p id="mess"></p>
+
 
                 <table class="table">
                     <tr>
@@ -56,7 +56,7 @@
                             </select>
 
                             <select name="upzilla_address" id="upzilla_address" class="form-control">
-                                <option value="<?= $uid=LoginUserData('upzilla_address') ?>">
+                                <option value="<?= $uid = LoginUserData('upzilla_address') ?>">
                                     <?php echo $row = SelectData("upazilas", "WHERE id='$uid'")->fetch_object()->up_bn_name; ?>
                                 </option>
                             </select>
