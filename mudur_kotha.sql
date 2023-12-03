@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2023 at 08:47 AM
+-- Generation Time: Dec 03, 2023 at 08:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -215,7 +215,8 @@ CREATE TABLE `fls_users` (
 INSERT INTO `fls_users` (`user_id`, `user_name`, `user_pass`, `name`, `phone_no`, `nid`, `address_1`, `Vibag_address`, `zilla_address`, `upzilla_address`, `aponar_boys`, `your_sex`, `marital_status`, `fmaily_members`, `bikolp_pesha`, `educational_qualification`, `profile_pic`, `user_dregination`, `status`, `updates`) VALUES
 (1, 'tanvir', 'admin123', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'tanvirpic.jpg', 'Software Engineer', 1, '2023-11-29 02:13:36.725389'),
 (3, 'wakil', '1234', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'imran.png', 'test', 1, '2023-11-29 02:13:36.725389'),
-(6, '01843640517', '123456', 'tanvir hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'ruble.jpg', '', 0, '2023-11-30 12:26:05.207062');
+(6, '01843640517', '123456', 'tanvir hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'ruble.jpg', '', 0, '2023-11-30 12:26:05.207062'),
+(7, '12345', '12345', 'TANVIR HASAN', '01729789114', 0, '', '6', '44', '336', 0, 'পুরুষ', 'বিবাহিত', 0, 'VCBCV', '', 'sdfsdfas.png', '', 0, '2023-12-01 14:28:45.732631');
 
 -- --------------------------------------------------------
 
@@ -327,12 +328,22 @@ INSERT INTO `kitpotung_porilokhito_12` (`id`, `user_id`, `kitpotoner_name`, `box
 
 CREATE TABLE `ovaber_somoy_21` (
   `id` int(10) NOT NULL,
-  `userid` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
   `fid_sorborho` varchar(255) NOT NULL,
   `poriman_box` varchar(255) NOT NULL,
   `somoy_month` varchar(255) NOT NULL,
   `cost_taka` varchar(111) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ovaber_somoy_21`
+--
+
+INSERT INTO `ovaber_somoy_21` (`id`, `user_id`, `fid_sorborho`, `poriman_box`, `somoy_month`, `cost_taka`) VALUES
+(1, 6, 'চিনি', 'Tanvir', 'fsdfsd', '  sdf '),
+(2, 6, 'কত্রিম পরাগ', 'sdfsddsfsd', 'sdf', ' sdf '),
+(3, 6, 'কত্রিম খাদ্য', 'fsdfdfsdf', 'fsdf', ' fsd '),
+(4, 6, 'অন্যান্য', 'sdfsdsfsdf', 'fsdd', ' sdfsdf ');
 
 -- --------------------------------------------------------
 
@@ -383,7 +394,7 @@ CREATE TABLE `rogerbebostha_20` (
 
 INSERT INTO `rogerbebostha_20` (`id`, `user_id`, `rugername`, `roge_akrantu_mashi`, `niramoy_bikolp`, `cost_taka`) VALUES
 (1, 6, 'ইউরোপীয় ফাউল ব্রুড ', 'SFDF', 'sdf', 'sdfsdf'),
-(2, 6, ' আমেরিকান ফাউল ব্রুড', 'SDFS', 'sdfs', 'sdfs'),
+(2, 6, ' আমেরিকান ফাউল ব্রুড', 'SDFSdsfsd', 'sdfs', 'sdfs'),
 (3, 6, 'থলি ব্রুড', 'DFSDF', 'dfsd', 'f'),
 (4, 6, 'চক ব্রুড', 'SDFSD', 'fsd', 'sdf'),
 (5, 6, 'নসেমা', 'SDF', 'fsd', 'sdfsdf'),
@@ -400,11 +411,20 @@ INSERT INTO `rogerbebostha_20` (`id`, `user_id`, `rugername`, `roge_akrantu_mash
 
 CREATE TABLE `traning_23` (
   `id` int(10) NOT NULL,
-  `userid` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
   `training_subject` varchar(255) NOT NULL,
   `somoykal` varchar(255) NOT NULL,
   `traning_fram` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `traning_23`
+--
+
+INSERT INTO `traning_23` (`id`, `user_id`, `training_subject`, `somoykal`, `traning_fram`) VALUES
+(1, 6, 'sdafsdf', 'fsdfsd', 'sdfs'),
+(2, 6, 'sdfsd', 'sdfsd', 'fsdf'),
+(3, 6, 'sdfsd', 'sdfsdf', 'sdfsdfsdfsdfsd');
 
 -- --------------------------------------------------------
 
@@ -983,7 +1003,7 @@ ALTER TABLE `kitpotung_porilokhito_12`
 --
 ALTER TABLE `ovaber_somoy_21`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user` (`userid`);
+  ADD KEY `user` (`user_id`);
 
 --
 -- Indexes for table `product_info_17`
@@ -1004,7 +1024,7 @@ ALTER TABLE `rogerbebostha_20`
 --
 ALTER TABLE `traning_23`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`userid`);
+  ADD KEY `userid` (`user_id`);
 
 --
 -- Indexes for table `upazilas`
@@ -1045,7 +1065,7 @@ ALTER TABLE `divisions`
 -- AUTO_INCREMENT for table `fls_users`
 --
 ALTER TABLE `fls_users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `fuleruttso_18`
@@ -1069,7 +1089,7 @@ ALTER TABLE `kitpotung_porilokhito_12`
 -- AUTO_INCREMENT for table `ovaber_somoy_21`
 --
 ALTER TABLE `ovaber_somoy_21`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_info_17`
@@ -1087,7 +1107,7 @@ ALTER TABLE `rogerbebostha_20`
 -- AUTO_INCREMENT for table `traning_23`
 --
 ALTER TABLE `traning_23`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `upazilas`

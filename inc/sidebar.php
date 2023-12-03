@@ -45,7 +45,12 @@
         </div>
       </li>
 
-
+      <li class="nav-item">
+        <a class="nav-link" href="print.php" target="null">
+          <span class="menu-title">Print</span>
+          <i class="mdi mdi-printer menu-icon"></i>
+        </a>
+      </li>
 
     </ul>
   </nav>

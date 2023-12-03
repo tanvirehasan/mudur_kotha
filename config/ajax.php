@@ -216,6 +216,49 @@ if (isset($_POST['table20_id'])) {
 }
 
 
+//ovaber_somoy_21
+if (isset($_POST['table21_id'])) {
+
+    $table_id = $_POST['table21_id'];
+    $poriman_box = $_POST['poriman_box'];
+    $somoy_month = $_POST['somoy_month'];
+    $cost_taka = $_POST['cost_taka'];
+
+    $insert = "UPDATE ovaber_somoy_21 SET     
+    `poriman_box`='$poriman_box',`somoy_month`='$somoy_month', `cost_taka`='$cost_taka'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+
+//traning_23
+if (isset($_POST['table23_id'])) {
+
+    $table_id = $_POST['table23_id'];
+    $training_subject = $_POST['training_subject'];
+    $somoykal = $_POST['somoykal'];
+    $traning_fram = $_POST['traning_fram'];
+
+    $insert = "UPDATE traning_23 SET     
+    `training_subject`='$training_subject',`somoykal`='$somoykal', `traning_fram`='$traning_fram'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
 
 
 
