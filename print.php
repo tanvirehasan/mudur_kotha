@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['userid'])) {
-    echo "<script> location.replace('admin/login.php')</script>";
+    echo "<script> location.replace('login.php')</script>";
 } else {
     $userid = $_SESSION['admin_user'];
     $id_user = $_SESSION['userid'];
@@ -35,7 +35,7 @@ require_once "config/db_conn.php";
                 <p>মৌমাছি পালনকারীর তথ্য</p>
             </div>
             <div class="col-4 text-end">
-                <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 100px; height:100px; border-radius:0px;">
+                <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 150px; border-radius:0px;">
             </div>
         </div>
 
@@ -349,25 +349,6 @@ require_once "config/db_conn.php";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <style>
@@ -377,7 +358,6 @@ require_once "config/db_conn.php";
             margin-bottom: 10px;
         }
 
-        body,
         h1,
         h2,
         h3,
@@ -388,16 +368,30 @@ require_once "config/db_conn.php";
             font-family: 'Tiro Bangla', Arial !important;
         }
 
+
+
+        body {
+            display: none;
+        }
+
         @media print {
+
             .pagebrack {
                 page-break-after: always;
             }
+
+            body {
+                display: block;
+                font-family: 'Tiro Bangla', Arial !important;
+            }
+
+
         }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
-        window.print();
+        // window.print();
     </script>
 </body>
 
