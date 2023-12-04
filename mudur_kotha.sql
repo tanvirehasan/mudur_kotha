@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 08:22 PM
+-- Generation Time: Dec 04, 2023 at 07:46 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `mudur_kotha`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminx`
+--
+
+CREATE TABLE `adminx` (
+  `adminid` int(10) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `profile_pic` varchar(255) NOT NULL,
+  `user_dregination` varchar(255) NOT NULL,
+  `status` int(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `adminx`
+--
+
+INSERT INTO `adminx` (`adminid`, `user_name`, `password`, `name`, `profile_pic`, `user_dregination`, `status`) VALUES
+(1, 'adminx', 'AdminX@2023', 'Admin', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -215,7 +238,7 @@ CREATE TABLE `fls_users` (
 INSERT INTO `fls_users` (`user_id`, `user_name`, `user_pass`, `name`, `phone_no`, `nid`, `address_1`, `Vibag_address`, `zilla_address`, `upzilla_address`, `aponar_boys`, `your_sex`, `marital_status`, `fmaily_members`, `bikolp_pesha`, `educational_qualification`, `profile_pic`, `user_dregination`, `status`, `updates`) VALUES
 (1, 'tanvir', 'admin123', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'tanvirpic.jpg', 'Software Engineer', 1, '2023-11-29 02:13:36.725389'),
 (3, 'wakil', '1234', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'imran.png', 'test', 1, '2023-11-29 02:13:36.725389'),
-(6, '01843640517', '123456', 'tanvir hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'ruble.jpg', '', 0, '2023-11-30 12:26:05.207062'),
+(6, '01843640517', '123456', 'Md Tanvir Hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'Cap22ture.JPG', '', 0, '2023-12-04 12:40:48.732501'),
 (7, '12345', '12345', 'TANVIR HASAN', '01729789114', 0, '', '6', '44', '336', 0, 'পুরুষ', 'বিবাহিত', 0, 'VCBCV', '', 'sdfsdfas.png', '', 0, '2023-12-01 14:28:45.732631');
 
 -- --------------------------------------------------------
@@ -348,6 +371,36 @@ INSERT INTO `ovaber_somoy_21` (`id`, `user_id`, `fid_sorborho`, `poriman_box`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paloner_jispotro_kenar_dukan_36`
+--
+
+CREATE TABLE `paloner_jispotro_kenar_dukan_36` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `product` varchar(255) NOT NULL,
+  `buy_cost` int(10) NOT NULL,
+  `poriman_yearly` varchar(255) NOT NULL,
+  `total_poriman` varchar(255) NOT NULL,
+  `dukaner_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paloner_somsa_somadhan_26`
+--
+
+CREATE TABLE `paloner_somsa_somadhan_26` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `somsa` int(255) NOT NULL,
+  `smomy_location` int(255) NOT NULL,
+  `howtosolv` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product_info_17`
 --
 
@@ -372,6 +425,50 @@ INSERT INTO `product_info_17` (`id`, `user_id`, `product_services`, `box_ruselt`
 (6, 6, 'প্রোপোলিস/মৌমাছির আঠা', 'dfs', 'fsdfsd'),
 (7, 6, 'পরাগায়ন', 'sdfsd', 'tanvir hasan'),
 (8, 6, 'অন্যান্য', 'fsdfsdfs', 'sdfsd');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pruduct_sell_27`
+--
+
+CREATE TABLE `pruduct_sell_27` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `utpadon_khoroc` int(255) NOT NULL,
+  `khucra_price` int(255) NOT NULL,
+  `pakari_price` int(255) NOT NULL,
+  `potasit_price` int(255) NOT NULL,
+  `kreta_bekti` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ranir_poristhi_24`
+--
+
+CREATE TABLE `ranir_poristhi_24` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `somsa_somadan` varchar(255) NOT NULL,
+  `somoykal` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `razar_poristi_25`
+--
+
+CREATE TABLE `razar_poristi_25` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `somsa_somadan` int(255) NOT NULL,
+  `somoykal` int(255) NOT NULL,
+  `location` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -945,6 +1042,12 @@ INSERT INTO `upazilas` (`id`, `district_id`, `up_en_name`, `up_bn_name`, `url`) 
 --
 
 --
+-- Indexes for table `adminx`
+--
+ALTER TABLE `adminx`
+  ADD PRIMARY KEY (`adminid`);
+
+--
 -- Indexes for table `atem_to_kitpotog_19`
 --
 ALTER TABLE `atem_to_kitpotog_19`
@@ -1006,11 +1109,46 @@ ALTER TABLE `ovaber_somoy_21`
   ADD KEY `user` (`user_id`);
 
 --
+-- Indexes for table `paloner_jispotro_kenar_dukan_36`
+--
+ALTER TABLE `paloner_jispotro_kenar_dukan_36`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `paloner_somsa_somadhan_26`
+--
+ALTER TABLE `paloner_somsa_somadhan_26`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `product_info_17`
 --
 ALTER TABLE `product_info_17`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `pruduct_sell_27`
+--
+ALTER TABLE `pruduct_sell_27`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `ranir_poristhi_24`
+--
+ALTER TABLE `ranir_poristhi_24`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `razar_poristi_25`
+--
+ALTER TABLE `razar_poristi_25`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`,`user_id`);
 
 --
 -- Indexes for table `rogerbebostha_20`
@@ -1036,6 +1174,12 @@ ALTER TABLE `upazilas`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `adminx`
+--
+ALTER TABLE `adminx`
+  MODIFY `adminid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `atem_to_kitpotog_19`
@@ -1092,10 +1236,40 @@ ALTER TABLE `ovaber_somoy_21`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `paloner_jispotro_kenar_dukan_36`
+--
+ALTER TABLE `paloner_jispotro_kenar_dukan_36`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `paloner_somsa_somadhan_26`
+--
+ALTER TABLE `paloner_somsa_somadhan_26`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `product_info_17`
 --
 ALTER TABLE `product_info_17`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `pruduct_sell_27`
+--
+ALTER TABLE `pruduct_sell_27`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ranir_poristhi_24`
+--
+ALTER TABLE `ranir_poristhi_24`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `razar_poristi_25`
+--
+ALTER TABLE `razar_poristi_25`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rogerbebostha_20`
