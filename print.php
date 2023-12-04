@@ -1,16 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['userid'])) {
+if (!isset($_GET['id'])) {
     echo "<script> location.replace('login.php')</script>";
 } else {
-    $userid = $_SESSION['admin_user'];
-    $id_user = $_SESSION['userid'];
+    $id_user = $_GET['id'];
 }
 require_once "config/db_conn.php";
-
-
-
 ?>
+
+
+
 <?php require_once "config/function.php"; ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +17,7 @@ require_once "config/db_conn.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>জরিপ ফর্ম | <?= LoginUserData('name') ?></title>
+    <title>জরিপ ফর্ম | <?= UserData($id_user,'name') ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +34,7 @@ require_once "config/db_conn.php";
                 <p>মৌমাছি পালনকারীর তথ্য</p>
             </div>
             <div class="col-4 text-end">
-                <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 150px; border-radius:0px;">
+                <img src="assets/images/faces/<?= UserData($id_user,'profile_pic') ?>" alt="" style="width: 150px; border-radius:0px;">
             </div>
         </div>
 
@@ -43,27 +42,27 @@ require_once "config/db_conn.php";
         <table class="table table-bordered">
             <tr>
                 <td><b for="name">নাম</b></td>
-                <td><?= LoginUserData('name') ?></td>
+                <td><?= UserData($id_user,'name') ?></td>
             </tr>
             <tr>
                 <td><b for="phone_no">মোবাইল নম্বর</b></td>
-                <td><?= LoginUserData('phone_no') ?></td>
+                <td><?= UserData($id_user,'phone_no') ?></td>
             </tr>
             <tr>
                 <td><b for="nid">NID নম্বর</b></td>
-                <td><?= LoginUserData('nid') ?></td>
+                <td><?= UserData($id_user,'nid') ?></td>
             </tr>
             <tr>
                 <td><b for="address_1">ঠিকানা</b></td>
-                <td><?= LoginUserData('address_1') ?></td>
+                <td><?= UserData($id_user,'address_1') ?></td>
             </tr>
             <tr>
                 <td><b for="name">ঠিকানা</b></td>
                 <td class="d-flex">
                     <?php
-                    $deve = LoginUserData('Vibag_address');
-                    $did = LoginUserData('zilla_address');
-                    $uid = LoginUserData('upzilla_address');
+                    $deve = UserData($id_user,'Vibag_address');
+                    $did = UserData($id_user,'zilla_address');
+                    $uid = UserData($id_user,'upzilla_address');
                     echo $row = SelectData("upazilas", "WHERE id='$uid'")->fetch_object()->up_bn_name . ", ";
                     echo $row = SelectData("districts", "WHERE id='$did'")->fetch_object()->dis_bn_name . ", ";
                     echo $row = SelectData("divisions", "WHERE id='$deve'")->fetch_object()->div_bn_name;
@@ -74,27 +73,27 @@ require_once "config/db_conn.php";
             </tr>
             <tr>
                 <td><b for="aponar_boys">বয়স</b></td>
-                <td><?= LoginUserData('aponar_boys') ?></td>
+                <td><?= UserData($id_user,'aponar_boys') ?></td>
             </tr>
             <tr>
                 <td><b for="your_sex">লিঙ্গ</b></td>
-                <td><?= LoginUserData('your_sex') ?></td>
+                <td><?= UserData($id_user,'your_sex') ?></td>
             </tr>
             <tr>
                 <td><b for="marital_status">বৈবাহিক অবস্থা</b></td>
-                <td><?= LoginUserData('marital_status') ?></td>
+                <td><?= UserData($id_user,'marital_status') ?></td>
             </tr>
             <tr>
                 <td><b for="fmaily_members">পরিবারের সদস্য সংখ্যা</b></td>
-                <td><?= LoginUserData('fmaily_members') ?></td>
+                <td><?= UserData($id_user,'fmaily_members') ?></td>
             </tr>
             <tr>
                 <td><b for="bikolp_pesha">বিকল্প পেশা</b></td>
-                <td><?= LoginUserData('bikolp_pesha') ?></td>
+                <td><?= UserData($id_user,'bikolp_pesha') ?></td>
             </tr>
             <tr>
                 <td><b for="educational_qualification">শিক্ষাগত যোগ্যতা</b></td>
-                <td><?= LoginUserData('educational_qualification') ?></td>
+                <td><?= UserData($id_user,'educational_qualification') ?></td>
             </tr>
         </table>
 
@@ -103,7 +102,6 @@ require_once "config/db_conn.php";
 
         <div class="bg-white table-title">
             <h4 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত কীটপতঙ্গ</h4>
-
         </div>
 
         <table class="table table-bordered">
@@ -358,6 +356,7 @@ require_once "config/db_conn.php";
             margin-bottom: 10px;
         }
 
+        body,
         h1,
         h2,
         h3,
@@ -371,7 +370,7 @@ require_once "config/db_conn.php";
 
 
         body {
-            display: none;
+            /* display: none; */
         }
 
         @media print {
@@ -381,7 +380,18 @@ require_once "config/db_conn.php";
             }
 
             body {
-                display: block;
+                /* display: block; */
+                font-family: 'Tiro Bangla', Arial !important;
+            }
+
+
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            b,
+            a {
                 font-family: 'Tiro Bangla', Arial !important;
             }
 
@@ -391,7 +401,7 @@ require_once "config/db_conn.php";
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script>
-        window.print();
+        // window.print();
     </script>
 </body>
 

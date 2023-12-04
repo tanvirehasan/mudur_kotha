@@ -1,11 +1,9 @@
 <?php
-
 session_start();
-if (!isset($_SESSION['admin_user'])) {
+if (!isset($_SESSION['adminx'])) {
   echo "<script> location.replace('login.php')</script>";
 } else {
-  $userid = $_SESSION['admin_user'];
-  $id_user = $_SESSION['userid'];
+  $userid = $_SESSION['adminx'];
 }
 require_once "config/db_conn.php";
 require_once "config/function.php";
@@ -18,23 +16,23 @@ require_once "config/function.php";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Dr. Mohammed Sakhawat Hossain</title>
-  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;400;800&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,600;1,800&family=Tiro+Bangla&display=swap" rel="stylesheet">
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/ajax.js"></script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/ajax.js"></script>
 </head>
 
 <body>
   <div class="container-scroller">
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo/logo.png" style="width: 30%;" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo/logo.png" style="width: 30%;" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="index.html"><img src="../assets/images/logo/logo.png" style="width: 30%;" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../assets/images/logo/logo.png" style="width: 30%;" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -54,11 +52,11 @@ require_once "config/function.php";
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <div class="nav-profile-img">
-                <img src="assets/images/faces/<?= UserData($id_user, 'profile_pic') ?>" alt="image">
+                <img src="../assets/images/faces/<?= UserData($userid, 'profile_pic') ?>" alt="image">
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black"><?= UserData($id_user, 'name') ?></p>
+                <p class="mb-1 text-black"><?= UserData($userid, 'name') ?></p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">

@@ -44,13 +44,13 @@ function client_name($cid, $data){
 
 //User Data
 function UserData($id, $data){
-    $row = SelectData("fls_users", "WHERE user_id='$id'")->fetch_object();
+    $row = SelectData("adminx", "where user_name='$id'")->fetch_object();
     return $row->$data;
 }
 
 //User Data
 function LoginUserData($data){
-    $row = SelectData("fls_users", "WHERE user_name='{$_SESSION['admin_user']}'")->fetch_object();
+    $row = SelectData("adminx", "WHERE user_name='{$_SESSION['adminx']}'")->fetch_object();
     return $row->$data;
 }
 

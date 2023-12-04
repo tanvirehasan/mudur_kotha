@@ -163,7 +163,7 @@
               while ($row = $data->fetch_object()) { ?>
                 <tr>
                   <td>
-                    <img src="assets/images/faces/<?= UserData($userid, 'profile_pic') ?>" class="mr-2" alt="image"> <?= $row->name ?>
+                    <img src="assets/images/faces/<?= UserData($id_user, 'profile_pic') ?>" class="mr-2" alt="image"> <?= $row->name ?>
                   </td>
                   <td> <?= $row->user_dregination ?> </td>
                   <td>

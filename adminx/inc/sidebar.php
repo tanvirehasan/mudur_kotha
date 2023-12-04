@@ -3,13 +3,13 @@
       <li class="nav-item nav-profile">
         <a href="#" class="nav-link">
           <div class="nav-profile-image">
-            <img src="assets/images/faces/<?= UserData($id_user, 'profile_pic') ?>" alt="profile">
+            <img src="../assets/images/faces/<?= UserData($userid, 'profile_pic') ?>" alt="profile">
             <span class="login-status online"></span>
             <!--change to offline or busy as needed-->
           </div>
           <div class="nav-profile-text d-flex flex-column">
-            <span class="font-weight-bold mb-2"><?= UserData($id_user, 'name') ?></span>
-            <span class="text-secondary text-small"><?= UserData($id_user, 'user_dregination') ?></span>
+            <span class="font-weight-bold mb-2"><?= UserData($userid, 'name') ?></span>
+            <span class="text-secondary text-small"><?= UserData($userid, 'user_dregination') ?></span>
           </div>
           <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
         </a>
@@ -46,7 +46,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="print.php?id=<?= UserData($id_user, 'user_id') ?>" target="null">
+        <a class="nav-link" href="print.php" target="null">
           <span class="menu-title">Print</span>
           <i class="mdi mdi-printer menu-icon"></i>
         </a>
