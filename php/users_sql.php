@@ -15,7 +15,7 @@ if (isset($_POST['login_btn'])) {
             if ($password == $result->user_pass) {
                 $_SESSION['admin_user'] = $result->user_name;
                 $_SESSION['userid'] = $result->user_id;
-                Reconect('index.php');
+                Reconect('new_user.php');
             } else {
                 $mess =  "Password does not match.";
             }
