@@ -17,7 +17,7 @@ if ($datacheck == 0) {
 
     <div class="col-12">
         <div class="text-center bg-white table-title">
-            <h2 class="p-2 m-0 pt-5">জরিপ বছর পরিচালিত মোমাছির বাক্সের সংখ্যা</h2>
+            <h2 class="p-2 m-0 pt-5">জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা</h2>
             <p id="mess"></p>
 
         </div>
@@ -27,8 +27,8 @@ if ($datacheck == 0) {
             <table class="table table-bordered">
                 <tr>
                     <th>ক্রমিক নং</th>
-                    <th>মোমাছির বাক্সের সংখ্যা</th>
-                    <th>দখলক্রত মোমাছির ফ্রেমের সংখ্যা</th>
+                    <th>মৌমাছির বাক্সের সংখ্যা</th>
+                    <th>দখলক্রত মৌমাছির ফ্রেমের সংখ্যা</th>
                     <th>মাস</th>
                     <th>অবস্থান এলাকা</th>
                 </tr>

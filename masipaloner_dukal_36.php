@@ -16,7 +16,7 @@ if ($datacheck == 0) {
 
     <div class="col-12">
         <div class="text-center bg-white table-title">
-            <h2 class="p-2 m-0 pt-5">মৌমাছির পালনের আনুষাগিক </h2>
+            <h2 class="p-2 m-0 pt-5">মৌমাছির পালনের আনুষাঙ্গিক সংগ্রহের দোকান/প্রতিষ্ঠান </h2>
             <p id="mess"></p>
         </div>
 

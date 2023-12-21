@@ -89,6 +89,26 @@ if (isset($_POST['id'])) {
 }
 
 
+//box_size_11
+if (isset($_POST['table_id11'])) {
+
+    $table_id = $_POST['table_id11'];
+    $box = $_POST['box'];
+    $fraem_size = $_POST['fraem_size'];
+    $month = $_POST['month'];
+    $location = $_POST['location'];
+
+    $insert = "UPDATE box_size_11 SET     
+    `box`='$box', `fraem_size`='$fraem_size', `month`='$month', `location`='$location'
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
 
 
 //kitpotung_porilokhito_12
@@ -260,18 +280,17 @@ if (isset($_POST['table23_id'])) {
 }
 
 
+//traning_24
+if (isset($_POST['table24_id'])) {
 
-//box_size_11
-if (isset($_POST['table_id11'])) {
-
-    $table_id = $_POST['table_id11'];
-    $box = $_POST['box'];
-    $fraem_size = $_POST['fraem_size'];
-    $month = $_POST['month'];
+    $table_id = $_POST['table24_id'];
+    $somsa_somadan = $_POST['somsa_somadan'];
+    $somoykal = $_POST['somoykal'];
     $location = $_POST['location'];
 
-    $insert = "UPDATE box_size_11 SET     
-    `box`='$box', `fraem_size`='$fraem_size', `month`='$month', `location`='$location'
+    $insert = "UPDATE ranir_poristhi_24 SET     
+    `somsa_somadan`='$somsa_somadan',`somoykal`='$somoykal', `location`='$location'
+
      WHERE  id='$table_id'";
 
     if ($conn->query($insert) == TRUE) {
@@ -280,6 +299,74 @@ if (isset($_POST['table_id11'])) {
         echo "sorry";
     }
 }
+
+
+//traning_25
+if (isset($_POST['table25_id'])) {
+
+    $table_id = $_POST['table25_id'];
+    $somsa_somadan = $_POST['somsa_somadan'];
+    $somoykal = $_POST['somoykal'];
+    $location = $_POST['location'];
+
+    $insert = "UPDATE razar_poristi_25 SET     
+    `somsa_somadan`='$somsa_somadan',`somoykal`='$somoykal', `location`='$location'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+//traning_26
+if (isset($_POST['table26_id'])) {
+
+    $table_id = $_POST['table26_id'];
+    $somsa = $_POST['somsa'];
+    $utpadon_khoroc = $_POST['utpadon_khoroc'];
+    $khucra_price = $_POST['khucra_price'];
+
+    $insert = "UPDATE paloner_somsa_somadhan_26 SET     
+    `somsa`='$somsa',`utpadon_khoroc`='$utpadon_khoroc', `khucra_price`='$khucra_price'
+
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+//traning_27
+if (isset($_POST['table27_id'])) {
+
+    $table_id = $_POST['table27_id'];
+    $product_services = $_POST['product_services'];
+    $utpadon_khoroc = $_POST['utpadon_khoroc'];
+    $khucra_price = $_POST['khucra_price'];
+    $pakari_price = $_POST['pakari_price'];
+    $potasit_price = $_POST['potasit_price'];
+    $kreta_bekti = $_POST['kreta_bekti'];
+
+    $insert = "UPDATE pruduct_sell_27 SET     
+    `product_services`='$product_services',`utpadon_khoroc`='$utpadon_khoroc', `khucra_price`='$khucra_price', `pakari_price`='$pakari_price', `potasit_price`='$potasit_price',`kreta_bekti`='$kreta_bekti'  WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+    
+}
+
+
 
 
 //paloner_jispotro_kenar_dukan_36

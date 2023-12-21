@@ -17,7 +17,7 @@ require_once "config/db_conn.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>জরিপ ফর্ম | <?= UserData($id_user,'name') ?></title>
+    <title>জরিপ ফর্ম | <?= UserData($id_user, 'name') ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@ require_once "config/db_conn.php";
                 <p>মৌমাছি পালনকারীর তথ্য</p>
             </div>
             <div class="col-4 text-end">
-                <img src="assets/images/faces/<?= UserData($id_user,'profile_pic') ?>" alt="" style="width: 150px; border-radius:0px;">
+                <img src="assets/images/faces/<?= UserData($id_user, 'profile_pic') ?>" alt="" style="width: 150px; border-radius:0px;">
             </div>
         </div>
 
@@ -42,27 +42,27 @@ require_once "config/db_conn.php";
         <table class="table table-bordered">
             <tr>
                 <td><b for="name">নাম</b></td>
-                <td><?= UserData($id_user,'name') ?></td>
+                <td><?= UserData($id_user, 'name') ?></td>
             </tr>
             <tr>
                 <td><b for="phone_no">মোবাইল নম্বর</b></td>
-                <td><?= UserData($id_user,'phone_no') ?></td>
+                <td><?= UserData($id_user, 'phone_no') ?></td>
             </tr>
             <tr>
                 <td><b for="nid">NID নম্বর</b></td>
-                <td><?= UserData($id_user,'nid') ?></td>
+                <td><?= UserData($id_user, 'nid') ?></td>
             </tr>
             <tr>
                 <td><b for="address_1">ঠিকানা</b></td>
-                <td><?= UserData($id_user,'address_1') ?></td>
+                <td><?= UserData($id_user, 'address_1') ?></td>
             </tr>
             <tr>
                 <td><b for="name">ঠিকানা</b></td>
                 <td class="d-flex">
                     <?php
-                    $deve = UserData($id_user,'Vibag_address');
-                    $did = UserData($id_user,'zilla_address');
-                    $uid = UserData($id_user,'upzilla_address');
+                    $deve = UserData($id_user, 'Vibag_address');
+                    $did = UserData($id_user, 'zilla_address');
+                    $uid = UserData($id_user, 'upzilla_address');
                     echo $row = SelectData("upazilas", "WHERE id='$uid'")->fetch_object()->up_bn_name . ", ";
                     echo $row = SelectData("districts", "WHERE id='$did'")->fetch_object()->dis_bn_name . ", ";
                     echo $row = SelectData("divisions", "WHERE id='$deve'")->fetch_object()->div_bn_name;
@@ -73,33 +73,64 @@ require_once "config/db_conn.php";
             </tr>
             <tr>
                 <td><b for="aponar_boys">বয়স</b></td>
-                <td><?= UserData($id_user,'aponar_boys') ?></td>
+                <td><?= UserData($id_user, 'aponar_boys') ?></td>
             </tr>
             <tr>
                 <td><b for="your_sex">লিঙ্গ</b></td>
-                <td><?= UserData($id_user,'your_sex') ?></td>
+                <td><?= UserData($id_user, 'your_sex') ?></td>
             </tr>
             <tr>
                 <td><b for="marital_status">বৈবাহিক অবস্থা</b></td>
-                <td><?= UserData($id_user,'marital_status') ?></td>
+                <td><?= UserData($id_user, 'marital_status') ?></td>
             </tr>
             <tr>
                 <td><b for="fmaily_members">পরিবারের সদস্য সংখ্যা</b></td>
-                <td><?= UserData($id_user,'fmaily_members') ?></td>
+                <td><?= UserData($id_user, 'fmaily_members') ?></td>
             </tr>
             <tr>
                 <td><b for="bikolp_pesha">বিকল্প পেশা</b></td>
-                <td><?= UserData($id_user,'bikolp_pesha') ?></td>
+                <td><?= UserData($id_user, 'bikolp_pesha') ?></td>
             </tr>
             <tr>
                 <td><b for="educational_qualification">শিক্ষাগত যোগ্যতা</b></td>
-                <td><?= UserData($id_user,'educational_qualification') ?></td>
+                <td><?= UserData($id_user, 'educational_qualification') ?></td>
             </tr>
         </table>
 
 
-        <!-- অভাবের সময় ব্যবস্থাপনা 12-->
 
+        <!-- জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা 11-->
+
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা</h4>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>মৌমাছির বাক্সের সংখ্যা</th>
+                <th>দখলক্রত মৌমাছির ফ্রেমের সংখ্যা</th>
+                <th>মাস</th>
+                <th>অবস্থান এলাকা</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->box ?></td>
+                    <td><?= $row->fraem_size ?></td>
+                    <td><?= $row->month ?></td>
+                    <td><?= $row->location ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
+        <div class="pagebrack"></div>
+
+        <!-- অভাবের সময় ব্যবস্থাপনা 12-->
         <div class="bg-white table-title">
             <h4 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত কীটপতঙ্গ</h4>
         </div>
@@ -343,11 +374,164 @@ require_once "config/db_conn.php";
         </table>
 
 
+        <!-- রানীর পরিস্থতি 24-->
 
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> রানীর পরিস্থতি</h4>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>রানীর সমস্যা/সমাধান</th>
+                <th>সময়কাল</th>
+                <th>অবস্থান এলাকা</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('ranir_poristhi_24', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->somsa_somadan ?></td>
+                    <td><?= $row->somoykal ?></td>
+                    <td><?= $row->location ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
+
+
+        <!-- ড্রোন পরিস্থতি 25-->
+
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> ড্রোন পরিস্থতি</h4>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>ড্রোন সমস্যা/সমাধান</th>
+                <th>সময়কাল</th>
+                <th>অবস্থান এলাকা</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('razar_poristi_25', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->somsa_somadan ?></td>
+                    <td><?= $row->somoykal ?></td>
+                    <td><?= $row->location ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
+
+
+
+        <!-- মৌমাছি পালন সংক্রান্ত সমস্যা 26-->
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> মৌমাছি পালন সংক্রান্ত সমস্যা</h4>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>সমস্যা</th>
+                <th>কখন এবং কোথায়</th>
+                <th>কীভাবে সমাধান করব</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('paloner_somsa_somadhan_26', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->somsa ?></td>
+                    <td><?= $row->smomy_location ?></td>
+                    <td><?= $row->howtosolv ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
+
+
+
+        <!-- পন্য বিপণন 27-->
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> পন্য বিপণন</h4>
+        </div>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>পন্য/সার্ভিস নাম</th>
+                <th>উৎপাদন খরচ/কেজি</th>
+                <th>খুচরা মূল্য/কেজি</th>
+                <th>পাইকারি দাম/কেজি</th>
+                <th>প্রত্যাশিত মূল্য /কেজি</th>
+                <th>ক্রেতা সংস্থা/ব্যক্তি</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('pruduct_sell_27', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->product_services ?></td>
+                    <td><?= $row->utpadon_khoroc ?></td>
+                    <td><?= $row->khucra_price ?></td>
+                    <td><?= $row->pakari_price ?></td>
+                    <td><?= $row->potasit_price ?></td>
+                    <td><?= $row->kreta_bekti ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
+
+
+
+        <!-- পন্য বিপণন 27-->
+        <div class="bg-white table-title">
+            <h4 class="p-2 m-0 pt-5"> মৌমাছির পালনের আনুষাঙ্গিক সংগ্রহের দোকান/প্রতিষ্ঠান</h4>
+        </div>
+
+        <table class="table table-bordered" style="width:100%">
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>পন্য/সার্ভিস নাম</th>
+                <th>ক্রয় মূল্য</th>
+                <th>পরিমান/বছর</th>
+                <th>খামার স্থাপন থেকে পরিমান</th>
+                <th>সংগ্রহকারী দোকানের নাম</th>
+            </tr>
+
+            <?php
+            $i = 1;
+            $data = SelectData('paloner_jispotro_kenar_dukan_36', "WHERE user_id='$id_user'");
+            while ($row = $data->fetch_object()) { ?>
+                <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row->product ?></td>
+                    <td><?= $row->buy_cost ?></td>
+                    <td><?= $row->poriman_yearly ?></td>
+                    <td><?= $row->total_poriman ?></td>
+                    <td><?= $row->dukaner_name ?></td>
+                </tr>
+
+            <?php } ?>
+        </table>
 
 
 
     </div>
+
 
     <style>
         .box {
