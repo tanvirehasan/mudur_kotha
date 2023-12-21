@@ -25,9 +25,9 @@ require_once "php/users_sql.php";
                 <div class="row flex-grow">
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
-                            <div class="brand-logo">
+                            <!-- <div class="brand-logo">
                                 <img src="assets/images/logo/logo.png">
-                            </div>
+                            </div> -->
                             <h4>Hello! let's get started</h4>
                             <h6 class=" font-weight-light">You have not account, just <a href="signup.php">SignUp</a></h6>
                             <span class="text-danger fw-bold"><?php if (isset($mess)) {
