@@ -74,8 +74,7 @@ if (isset($_POST['signup_btn'])) {
             $sql = "INSERT INTO `fls_users` (`user_name`,`user_pass`) VALUES ('$user_name','$user_pass')";
             if ($conn->query($sql) === TRUE) {
                 echo "Data inserted successfully";
-                $_SESSION['admin_user'] = $user_name;
-                Reconect('index.php');
+                Reconect('login.php');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
