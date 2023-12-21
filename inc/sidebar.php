@@ -28,7 +28,7 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <?php if (UserData($id_user, 'name') !='null') { ?>
+            <?php if (UserData($id_user, 'name') !='') { ?>
               <li class="nav-item"> <a class="nav-link" href="new_user.php">প্রোফাইল</a></li>
               <li class="nav-item"> <a class="nav-link" href="zoripyer_11.php">মৌমাছির বক্সের সংখ্যা</a></li>
               <li class="nav-item"> <a class="nav-link" href="kitpotong_f12.php">মৌমাছির খামারে কীটপতঙ্গ</a></li>
@@ -51,7 +51,7 @@
         </div>
       </li>
 
-      <?php if (UserData($id_user, 'name') != 'null') { ?>
+      <?php if (UserData($id_user, 'name') != '') { ?>
         <li class="nav-item">
           <a class="nav-link" href="print.php?id=<?= UserData($id_user, 'user_id') ?>" target="null">
             <span class="menu-title">Print</span>
