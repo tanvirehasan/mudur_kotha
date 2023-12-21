@@ -1,39 +1,20 @@
 <?php
-include "config/db_conn.php";
 
 
-if (isset($_POST['datainsert'])) {
-    # code...
-    $filename = $_FILES['fileu']['tmp_name'];
-    $file = fopen($filename, 'r');
-
-    // Loop through the file line by line
-    while (($row = fgetcsv($file)) !== false) {
-        // Process each row
-        $name       = $conn->real_escape_string($row[0]);
-        $short_name = $conn->real_escape_string($row[1]);
-        $email_id   = $conn->real_escape_string($row[2]);
-        $phone_no   = $conn->real_escape_string($row[3]);
-        $event_id   = $conn->real_escape_string($row[4]);
-        $group_name = $conn->real_escape_string($row[5]);
-        // ...
-
-        // Create the INSERT statement
-        $sql = "INSERT INTO participants_list (`name`, short_name,email_id,phone_no,event_id,group_name) VALUES
-                                         ('$name', '$short_name','$email_id','$phone_no','$event_id','$group_name')";
-
-        // Execute the INSERT statement
-        if (!$conn->query($sql)) {
-            echo 'Error: ' . $conn->error;
-        }
-    }
+// OTP System
+function SMS_API($number, $messages)
+{
+    $number = $number;
+    $messages = $messages;
+    $url = 'http://api.greenweb.com.bd/api.php?json&token=2966070732169128405295f2776ee4a84e0c7c332b10ab173604&to=' . $number . '&message=' . rawurldecode($messages);
+    $gateway = preg_replace("/ /", "%20", $url);
+    $result = file_get_contents($gateway);
+    $decode = json_decode($result, true);
+    return $decode;
 }
 
-// ...
+
+
+echo SMS_API('01843640517', 'Test SMS');
+
 ?>
-
-
-<form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="fileu">
-    <button type="submit" name="datainsert">Upload CSV file</button>
-</form>

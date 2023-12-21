@@ -261,6 +261,51 @@ if (isset($_POST['table23_id'])) {
 
 
 
+//box_size_11
+if (isset($_POST['table_id11'])) {
+
+    $table_id = $_POST['table_id11'];
+    $box = $_POST['box'];
+    $fraem_size = $_POST['fraem_size'];
+    $month = $_POST['month'];
+    $location = $_POST['location'];
+
+    $insert = "UPDATE box_size_11 SET     
+    `box`='$box', `fraem_size`='$fraem_size', `month`='$month', `location`='$location'
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+//paloner_jispotro_kenar_dukan_36
+if (isset($_POST['table_id36'])) {
+
+    $table_id = $_POST['table_id36'];
+    $product = $_POST['product'];
+    $buy_cost = $_POST['buy_cost'];
+    $poriman_yearly = $_POST['poriman_yearly'];
+    $total_poriman = $_POST['total_poriman'];
+    $dukaner_name = $_POST['dukaner_name'];
+
+    $insert = "UPDATE paloner_jispotro_kenar_dukan_36 SET     
+    `product`='$product', `buy_cost`='$buy_cost', `poriman_yearly`='$poriman_yearly', `total_poriman`='$total_poriman', `dukaner_name`='$dukaner_name'
+     WHERE  id='$table_id'";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+
 
 
 

@@ -31,6 +31,15 @@
                         <td><input id="nid" name="nid" value="<?= LoginUserData('nid') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
+                        <td><label for="profile_pic">ছবি</label>
+
+                            <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 100px; height:100px; border-radius:0px; margin-left:20px">
+
+                        </td>
+                        <input id="id" name="profile_pic2" value="<?= LoginUserData('profile_pic') ?>" type="hidden">
+                        <td><input id="profile_pic" name="profile_pic" type="file" class="form-control"></td>
+                    </tr>
+                    <tr>
                         <td><label for="address_1">ঠিকানা</label></td>
                         <td><input id="address_1" name="address_1" value="<?= LoginUserData('address_1') ?>" type="text" class="form-control"></td>
                     </tr>
@@ -105,15 +114,6 @@
                     <tr>
                         <td><label for="educational_qualification">শিক্ষাগত যোগ্যতা</label></td>
                         <td><input id="educational_qualification" name="educational_qualification" value="<?= LoginUserData('educational_qualification') ?>" type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="profile_pic">ছবি</label>
-
-                            <img src="assets/images/faces/<?= LoginUserData('profile_pic') ?>" alt="" style="width: 100px; height:100px; border-radius:0px; margin-left:20px">
-
-                        </td>
-                        <input id="id" name="profile_pic2" value="<?= LoginUserData('profile_pic') ?>" type="hidden">
-                        <td><input id="profile_pic" name="profile_pic" type="file" class="form-control"></td>
                     </tr>
 
                     <tr>
