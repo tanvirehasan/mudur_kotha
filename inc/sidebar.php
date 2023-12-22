@@ -28,7 +28,7 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <?php if (UserData($id_user, 'name') !='') { ?>
+            <?php if (UserData($id_user, 'name') != '') { ?>
               <li class="nav-item"> <a class="nav-link" href="new_user.php">প্রোফাইল</a></li>
               <li class="nav-item"> <a class="nav-link" href="zoripyer_11.php">মৌমাছির বক্সের সংখ্যা</a></li>
               <li class="nav-item"> <a class="nav-link" href="kitpotong_f12.php">মৌমাছির খামারে কীটপতঙ্গ</a></li>
@@ -44,6 +44,7 @@
               <li class="nav-item"> <a class="nav-link" href="lalun_palon_somosa_26.php">মৌমাছি পালন সংক্রান্ত সমস্যা</a></li>
               <li class="nav-item"> <a class="nav-link" href="pruduct_sell_27.php">পন্য বিপণন</a></li>
               <li class="nav-item"> <a class="nav-link" href="masipaloner_dukal_36.php">আনুষাঙ্গিক সংগ্রহের দোকান</a></li>
+              <li class="nav-item"> <a class="nav-link" href="ay_vey.php">আয় ব্যয়</a></li>
             <?php } else { ?>
               <li class="nav-item"> <a class="nav-link" href="new_user.php">প্রোফাইল</a></li>
             <?php } ?>

@@ -13,9 +13,6 @@
 
             </div>
             <form method="POST" id="profile" action="" enctype="multipart/form-data">
-
-
-
                 <table class="table">
                     <tr>
                         <input id="id" name="id" value="<?= $id_user ?>" type="hidden">
@@ -40,7 +37,7 @@
                         <td><input id="profile_pic" name="profile_pic" type="file" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td><label for="address_1">ঠিকানা</label></td>
+                        <td><label for="address_1">গ্রাম</label></td>
                         <td><input id="address_1" name="address_1" value="<?= LoginUserData('address_1') ?>" type="text" class="form-control"></td>
                     </tr>
                     <tr>
@@ -82,7 +79,8 @@
                         <td><label for="your_sex">লিঙ্গ</label></td>
                         <td>
                             <select name="your_sex" id="your_sex" class="form-control">
-                                <option value="<?= LoginUserData('your_sex') ?>" selected><?= LoginUserData('your_sex') ?></option>
+                                <option value="<?= LoginUserData('your_sex') ?>" selected><?= $retVal = (LoginUserData('your_sex')=='') ? "সিলেক্ট করুন" : LoginUserData('your_sex'); ?></option>
+
                                 <option value="পুরুষ">পুরুষ</option>
                                 <option value="মহিলা"> মহিলা </option>
                                 <option value="অন্যান্য">অন্যান্য</option>
@@ -93,7 +91,7 @@
                         <td><label for="marital_status">বৈবাহিক অবস্থা</label></td>
                         <td>
                             <select name="marital_status" id="marital_status" class="form-control">
-                                <option value="<?= LoginUserData('marital_status') ?>" selected><?= LoginUserData('marital_status') ?></option>
+                                <option value="<?= LoginUserData('marital_status') ?>" selected><?= (LoginUserData('marital_status') == '') ? "সিলেক্ট করুন" : LoginUserData('marital_status'); ?></option>
                                 <option value="অবিবাহিত">অবিবাহিত</option>
                                 <option value="বিবাহিত"> বিবাহিত </option>
                                 <option value="গহিনী">গহিনী</option>
@@ -121,15 +119,9 @@
                         <td class="text-end"><button type="submit" id="submit" class="btn btn-warning">Update</button></td>
                     </tr>
 
-
                 </table>
-
             </form>
         </div>
-
-
     </div>
-
 </div>
-
 <?php require_once "inc/footer.php" ?>

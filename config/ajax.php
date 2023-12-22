@@ -394,6 +394,38 @@ if (isset($_POST['table_id36'])) {
 
 
 
+//Ay_vey
+
+if (isset($_POST['ay_vey_id'])) {
+
+
+    $insert = "UPDATE  `ay_vey` SET 
+    
+    `posikhon_prodankari_sonstha`='{$_POST['posikhon_prodankari_sonstha']}',
+    `sohyatakari_songstha`='{$_POST['sohyatakari_songstha']}',
+    `odivukot_songstha`='{$_POST['odivukot_songstha']}',
+    `masik_bey`='{$_POST['masik_bey']}',
+    `masik_ay`='{$_POST['masik_ay']}',
+    `yearly_ay`='{$_POST['yearly_ay']}',
+    `khamare_jonbol_songkha`='{$_POST['khamare_jonbol_songkha']}',
+    `shromik_gor_beton`='{$_POST['shromik_gor_beton']}',
+    `khamare_shrmik_somoykal`='{$_POST['khamare_shrmik_somoykal']}',
+    `suparish_motamot`='{$_POST['suparish_motamot']}',
+    `sokarer_kase_caoya`='{$_POST['sokarer_kase_caoya']}'
+        
+    WHERE user_id='{$_POST['ay_vey_id']}' ";
+
+    if ($conn->query($insert) == TRUE) {
+        echo "<p class='text-success'>Success</p>";
+    } else {
+        echo "sorry";
+    }
+}
+
+
+
+
+
 
 
 

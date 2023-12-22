@@ -35,7 +35,7 @@ require_once "php/users_sql.php";
                                                                 } ?></span>
                             <form class="pt-3" action="" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" name="user_name" placeholder="Username">
+                                    <input type="number" class="form-control form-control-lg" name="user_name" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-lg" name="user_pass" placeholder="Password">

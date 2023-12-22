@@ -529,6 +529,50 @@ require_once "config/db_conn.php";
         </table>
 
 
+        <table>
+            <?php $ayvey = SelectData("ay_vey", "WHERE user_id='$id_user'")->fetch_object(); ?>
+
+            <tr>
+                <td><b> প্রশিক্ষণ প্রদানকারী সংস্থা:</b> <?= $ayvey->posikhon_prodankari_sonstha ?></td>
+            </tr>
+            <tr>
+                <td><b> সহায়তাকারী সংস্থা:</b> <?= $ayvey->sohyatakari_songstha ?></td>
+            <tr>
+                <td><b> অধিভুক্ত সংস্থা:</b> <?= $ayvey->odivukot_songstha ?></td>
+            </tr>
+            <tr>
+                <td><b> মাসিক ব্যয়:</b> <?= $ayvey->masik_bey ?></td>
+            </tr>
+            <tr>
+                <td><b> মাসিক আয়:</b> <?= $ayvey->masik_ay ?></td>
+            </tr>
+            <tr>
+                <td><b> বার্ষিক আয়:</b> <?= $ayvey->yearly_ay ?></td>
+            </tr>
+            <tr>
+                <td><b> খামারে জনবল সংখ্যা:</b> <?= $ayvey->khamare_jonbol_songkha ?></td>
+            </tr>
+            <tr>
+                <td><b> শ্রমিকের গড় বেতন/মাস (টাকা):</b> <?= $ayvey->shromik_gor_beton ?></td>
+            </tr>
+            <tr>
+                <td><b> খামারে শ্রমিকের সময়কাল (মাস):</b> <?= $ayvey->khamare_shrmik_somoykal ?></td>
+            </tr>
+            <tr>
+                <td><b> মৌমাছি পালনের উন্নয়নের বিষয়ে সুপারিষ/মতামত:</b> <?= $ayvey->suparish_motamot ?></td>
+            </tr>
+            <tr>
+                <td><b> সরকারের কাছে থেকে আপনার কী সমর্থন প্রয়োজন:</b> <?= $ayvey->sokarer_kase_caoya ?></td>
+            </tr>
+
+            </tr>
+            </tr>
+        </table>
+
+
+
+
+
 
     </div>
 
@@ -549,12 +593,6 @@ require_once "config/db_conn.php";
         b,
         a {
             font-family: 'Tiro Bangla', Arial !important;
-        }
-
-
-
-        body {
-            /* display: none; */
         }
 
         @media print {
