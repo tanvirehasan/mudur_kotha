@@ -16,6 +16,7 @@ require_once "php/users_sql.php";
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery.min.js"></script>
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 </head>
 
@@ -29,7 +30,7 @@ require_once "php/users_sql.php";
                             <!-- <div class="brand-logo">
                                 <img src="assets/images/logo/logo.png">
                             </div> -->
-                            <h4>Hello! let's get started</h4>
+                            <h4 id="mess">Hello! let's get started</h4>
                             <h6 class=" font-weight-light">If you already have an account, just <a href="login.php">Login</a></h6>
                             <span class="text-danger fw-bold">
                                 <?php if (isset($mess)) {
@@ -37,13 +38,18 @@ require_once "php/users_sql.php";
                                 } ?></span>
                             <form class="pt-3" action="" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" name="user_name" placeholder="Username">
+                                    <input type="number" id="phoneNoN" class="form-control form-control-lg" name="user_name" placeholder="Phone No">
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" name="user_pass" placeholder="Password">
+                                    <input type="number" id="otp" class="form-control form-control-lg" name="otp" placeholder="OTP">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control form-control-lg" name="user_pass" placeholder="Password">
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" name="signup_btn" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGNUP</button>
+                                    <button type="submit" id="signup_btnt" name="signup_btn" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGNUP</button>
                                 </div>
 
                             </form>
@@ -55,6 +61,44 @@ require_once "php/users_sql.php";
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+
+
+    <script>
+        $(document).ready(function() {
+
+            // OTP SENT 
+            $('#phoneNoN').on('keyup', function() {
+                var phoneNoN = $(this).val();
+                var charCount = phoneNoN.length;
+                if (charCount == 11) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'config/ajax.php',
+                        data: {
+                            phone_non: phoneNoN
+                        },
+                        success: function(data) {
+                            $("#mess").html(data);
+                            if (data === "Phone Number Already Exists") {
+                                $('#signup_btnt, #password , #otp').prop('disabled', true);
+                            }
+                        }
+                    });
+                } else {
+                    $("#mess").text('Wating...');
+                }
+            });
+
+
+
+
+        });
+    </script>
+
+
+
+
+
 
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="assets/js/off-canvas.js"></script>

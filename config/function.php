@@ -82,6 +82,24 @@ function compressImage($source, $destination, $quality)
 
 
 
+// OTP System
+function SMS_API($number, $messages)
+{
+    $number = $number;
+    $messages = $messages;
+    $url = 'http://api.greenweb.com.bd/api.php?json&token=2966070732169128405295f2776ee4a84e0c7c332b10ab173604&to=' . $number . '&message=' . rawurldecode($messages);
+    $gateway = preg_replace("/ /", "%20", $url);
+    $result = file_get_contents($gateway);
+    $decode = json_decode($result, true);
+    return $decode;
+}
+
+
+
+
+
+
+
 
 if ($_SERVER['HTTP_HOST'] != "app.drsakhawat.com" || $_SERVER['SERVER_NAME'] != "app.drsakhawat.com") {
     // echo "<script>window.location.href='https://www.google.com/';</script>";

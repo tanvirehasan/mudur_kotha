@@ -15,6 +15,7 @@ require_once "php/users_sql.php";
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery.min.js"></script>
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 </head>
 
@@ -28,17 +29,17 @@ require_once "php/users_sql.php";
                             <!-- <div class="brand-logo">
                                 <img src="assets/images/logo/logo.png">
                             </div> -->
-                            <h4>Hello! let's get started</h4>
+                            <h4 id="mess">Hello! let's get started</h4>
                             <h6 class=" font-weight-light">You have not account, just <a href="signup.php">SignUp</a></h6>
                             <span class="text-danger fw-bold"><?php if (isset($mess)) {
                                                                     echo $mess;
                                                                 } ?></span>
                             <form class="pt-3" action="" method="POST">
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-lg" name="user_name" placeholder="Username">
+                                    <input type="number" id="phoneNo" class="form-control form-control-lg" name="user_name" placeholder="Phone No">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" name="user_pass" placeholder="Password">
+                                    <input type="password" class="form-control form-control-lg" name="user_pass" placeholder="Password/OTP">
                                 </div>
                                 <div class="mt-3">
                                     <button type="submit" name="login_btn" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="index.html">SIGN IN</button>
@@ -53,6 +54,33 @@ require_once "php/users_sql.php";
         </div>
         <!-- page-body-wrapper ends -->
     </div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#phoneNo').on('keyup', function() {
+                var phoneNo = $(this).val();
+                var charCount = phoneNo.length;
+                if (charCount == 11) {
+                    $('#phoneNo').prop('readonly', true);
+                    $.ajax({
+                        type: 'POST',
+                        url: 'config/ajax.php',
+                        data: {
+                            phone_No: phoneNo
+                        },
+                        success: function(data) {
+                            $("#mess").html(data);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
 
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="assets/js/off-canvas.js"></script>

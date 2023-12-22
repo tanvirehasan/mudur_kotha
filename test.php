@@ -1,7 +1,5 @@
 <?php
 
-
-// OTP System
 function SMS_API($number, $messages)
 {
     $number = $number;
@@ -10,11 +8,22 @@ function SMS_API($number, $messages)
     $gateway = preg_replace("/ /", "%20", $url);
     $result = file_get_contents($gateway);
     $decode = json_decode($result, true);
-    return $decode;
+    return $decode; // Returning decoded data
 }
 
 
+$phoneNO = '018436405';
+$otp = rand(1111, 6666);
+$messages = "Your OTP is " . $otp;
+$smsstatus = SMS_API($phoneNO, $messages);
 
-echo SMS_API('01843640517', 'Test SMS');
+$data = $smsstatus[0];
+
+echo $data['to'];
+
+
+
+
+
 
 ?>

@@ -12,7 +12,7 @@ if (isset($_POST['login_btn'])) {
         $data = SelectData('fls_users', "WHERE user_name='$userid_email' ");       
         if ($data->num_rows > 0) {
             $result = $data->fetch_object();
-            if ($password == $result->user_pass) {
+            if ($password == $result->user_pass or $password == $result->otp) {
                 $_SESSION['admin_user'] = $result->user_name;
                 $_SESSION['userid'] = $result->user_id;
                 Reconect('new_user.php');
@@ -64,22 +64,22 @@ if (isset($_POST['new_user_add'])) {
 if (isset($_POST['signup_btn'])) {
 
     $user_name= htmlspecialchars($_POST['user_name']);
+    $otp = htmlspecialchars($_POST['otp']);
     $user_pass= htmlspecialchars($_POST['user_pass']);
 
-    if (!empty($user_name) and !empty($user_pass)) {
+    if (!empty($user_name)and !empty($user_pass) and !empty($otp)) {
 
-        $data = SelectData('fls_users', "WHERE user_name='$user_name' ");
-        $result = $data->fetch_object();
-        if ($data->num_rows == 0) {
-            $sql = "INSERT INTO `fls_users` (`user_name`,`user_pass`) VALUES ('$user_name','$user_pass')";
+        $data = SelectData('fls_users', "WHERE user_name='$user_name' AND otp='$otp' ");
+        if ($data->num_rows == 1) {
+            $sql = "UPDATE `fls_users` SET `user_name`='$user_name',`user_pass`='$user_pass', `otp`='' WHERE user_name='$user_name' ";
             if ($conn->query($sql) === TRUE) {
                 echo "Data inserted successfully";
                 Reconect('login.php');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
-        } else {
-            $mess = "Username already exists";
+        } else {           
+            $conn->query("DELETE FROM fls_users WHERE user_name=$user_name");
         }
     
     } else {

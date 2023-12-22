@@ -1,6 +1,92 @@
 <?php
-
 include "db_conn.php";
+
+
+
+//Login OTP
+
+if (isset($_POST["phone_No"])) {
+
+    $phoneNO=$_POST["phone_No"];
+    $otp = rand(1111,6666);
+    $messages = "Your OTP is".$otp;
+    $url = 'http://api.greenweb.com.bd/api.php?json&token=2966070732169128405295f2776ee4a84e0c7c332b10ab173604&to=' . $phoneNO . '&message=' . rawurldecode($messages);
+    $gateway = preg_replace("/ /", "%20", $url);
+    $result = file_get_contents($gateway);
+    $decode = json_decode($result, true);
+    $responseData= $decode[0];
+    $responseData['status'];
+
+    if ($responseData['status']== 'SENT') {
+        $insert = "UPDATE fls_users SET `otp`='$otp' WHERE  user_name='$phoneNO'";
+        if ($conn->query($insert) == TRUE) {
+            echo $responseData['statusmsg'];
+        } else {
+            echo "sorry";
+        }
+    }
+}
+
+
+
+//signup OTP
+
+if (isset($_POST["phone_non"])) {
+
+    $phoneNO = $_POST["phone_non"];
+
+    $data = $conn->query("SELECT * FROM fls_users WHERE user_name='$phoneNO'");
+    if ($data->num_rows == 0) {
+
+            $otp = rand(1111, 6666);
+            $messages = "Your OTP is" . $otp;
+            $url = 'http://api.greenweb.com.bd/api.php?json&token=2966070732169128405295f2776ee4a84e0c7c332b10ab173604&to=' . $phoneNO . '&message=' . rawurldecode($messages);
+            $gateway = preg_replace("/ /", "%20", $url);
+            $result = file_get_contents($gateway);
+            $decode = json_decode($result, true);
+            $responseData = $decode[0];
+            $responseData['status'];
+
+            if ($responseData['status'] == 'SENT') {
+                $insert = "INSERT INTO `fls_users` (`user_name`,`otp`) VALUES ('$phoneNO','$otp')";
+                if ($conn->query($insert) == TRUE) {
+                    echo $responseData['statusmsg'];
+                } else {
+                    echo "sorry";
+                }
+            }
+
+    }else{
+        echo "Phone Number Already Exists";
+    }
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if (isset($_POST["Vibag_id"])) {
     //Get all state data
     $Vibag_id = $_POST['Vibag_id'];
@@ -389,8 +475,6 @@ if (isset($_POST['table_id36'])) {
         echo "sorry";
     }
 }
-
-
 
 
 
