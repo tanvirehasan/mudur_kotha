@@ -17,7 +17,7 @@ if ($datacheck == 0) {
 
     <div class="col-12">
         <div class="text-center bg-white table-title">
-            <h2 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত রোগ</h2>            
+            <h2 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত রোগ</h2>
         </div>
 
         <div class="card p-3 form_tabkle">
@@ -43,8 +43,8 @@ if ($datacheck == 0) {
                             <input id="table_id_<?php echo $row->id ?>" value="<?php echo $row->id ?>" hidden>
                             <td><input type="text" id="box_sokha_<?php echo $row->id ?>" value="<?= $row->box_sokha ?>" class="form-control"></td>
                             <td><input type="text" id="lokkhon_<?php echo $row->id ?>" value="<?= $row->lokkhon ?>" class="form-control"></td>
-                            <td><input type="month" id="max_akromon_mas_<?php echo $row->id ?>" value="<?= $row->max_akromon_mas ?>" class="form-control"></td>
-                            <td><input type="month" id="mini_akromon_mas_<?php echo $row->id ?>" value="<?= $row->mini_akromon_mas ?>" class="form-control"></td>
+                            <td><input type="text" id="max_akromon_mas_<?php echo $row->id ?>" value="<?= $row->max_akromon_mas ?>" class="form-control"></td>
+                            <td><input type="text" id="mini_akromon_mas_<?php echo $row->id ?>" value="<?= $row->mini_akromon_mas ?>" class="form-control"></td>
                         </tr>
 
 

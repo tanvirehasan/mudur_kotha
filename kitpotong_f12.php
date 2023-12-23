@@ -50,15 +50,15 @@ if ($datacheck == 0) {
                             </td>
                             <td><input type="text" id="box_sokha_<?php echo $row->id ?>" name="box_sokha" value="<?= $row->box_sokha ?>" class="form-control"></td>
                             <td><input type="text" id="lokkhon_<?php echo $row->id ?>" name="lokkhon" value="<?= $row->lokkhon ?>" class="form-control"></td>
-                            <td><input type="month" id="max_akromon_mas_<?php echo $row->id ?>" name="max_akromon_mas" value="<?= $row->max_akromon_mas ?>" class="form-control"></td>
-                            <td><input type="month" id="mini_akromon_mas_<?php echo $row->id ?>" name="mini_akromon_mas" value="<?php echo $row->mini_akromon_mas ?>" class="form-control"></td>
+                            <td><input type="text" id="max_akromon_mas_<?php echo $row->id ?>" name="max_akromon_mas" value="<?= $row->max_akromon_mas ?>" class="form-control"></td>
+                            <td><input type="text" id="mini_akromon_mas_<?php echo $row->id ?>" name="mini_akromon_mas" value="<?php echo $row->mini_akromon_mas ?>" class="form-control"></td>
                         </tr>
                     </form>
 
 
                     <script>
                         $(document).ready(function() {
-                            $("#box_sokha_<?php echo $row->id ?>, #lokkhon_<?php echo $row->id ?>, #max_akromon_mas_<?php echo $row->id ?>, #mini_akromon_mas_<?php echo $row->id ?> ").keyup(function() {                                
+                            $("#box_sokha_<?php echo $row->id ?>, #lokkhon_<?php echo $row->id ?>, #max_akromon_mas_<?php echo $row->id ?>, #mini_akromon_mas_<?php echo $row->id ?> ").keyup(function() {
 
                                 var table_id = $("#table_id_<?php echo $row->id ?>").val();
                                 var box_sokha = $("#box_sokha_<?php echo $row->id ?>").val();

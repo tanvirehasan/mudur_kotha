@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2023 at 07:46 AM
+-- Generation Time: Dec 22, 2023 at 11:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -73,7 +73,46 @@ INSERT INTO `atem_to_kitpotog_19` (`id`, `user_id`, `kit_name`, `kit_sokkha`, `n
 (7, 6, 'পাখি', 'asdas', 'dasd', 'asd'),
 (8, 6, 'অন্যান্য', 'asda', 'asd', 'asd'),
 (9, 6, 'ব্রাউল ফ্লাই', 'dasda', 'sdasdasdasd', 'asda'),
-(10, 6, 'কোন ধারণা নেই', 'l;k;lkl', '', 'dasdasda');
+(10, 6, 'কোন ধারণা নেই', 'l;k;lkl', '', 'dasdasda'),
+(11, 1, 'ভারোয়া মাইট ', '', '', ''),
+(12, 1, 'শ্বাসনালীর মাইট', '', '', ''),
+(13, 1, 'মৌচাক বিটল পোকা', '', '', ''),
+(14, 1, 'মোমের মথ', '', '', ''),
+(15, 1, 'ভীমরুল', '', '', ''),
+(16, 1, 'পিঁপড়া', '', '', ''),
+(17, 1, 'পাখি', '', '', ''),
+(18, 1, 'অন্যান্য', '', '', ''),
+(19, 1, 'ব্রাউল ফ্লাই', '', '', ''),
+(20, 1, 'কোন ধারণা নেই', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ay_vey`
+--
+
+CREATE TABLE `ay_vey` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `posikhon_prodankari_sonstha` varchar(255) NOT NULL,
+  `sohyatakari_songstha` varchar(255) NOT NULL,
+  `odivukot_songstha` varchar(255) NOT NULL,
+  `masik_bey` varchar(255) NOT NULL,
+  `masik_ay` varchar(255) NOT NULL,
+  `yearly_ay` varchar(255) NOT NULL,
+  `khamare_jonbol_songkha` varchar(255) NOT NULL,
+  `shromik_gor_beton` varchar(255) NOT NULL,
+  `khamare_shrmik_somoykal` varchar(255) NOT NULL,
+  `suparish_motamot` varchar(255) NOT NULL,
+  `sokarer_kase_caoya` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ay_vey`
+--
+
+INSERT INTO `ay_vey` (`id`, `user_id`, `posikhon_prodankari_sonstha`, `sohyatakari_songstha`, `odivukot_songstha`, `masik_bey`, `masik_ay`, `yearly_ay`, `khamare_jonbol_songkha`, `shromik_gor_beton`, `khamare_shrmik_somoykal`, `suparish_motamot`, `sokarer_kase_caoya`) VALUES
+(1, 1, 'Futureleaders', 'UN', 'Sky', '120565', '205458', '578945868', '20', '123456', '6', 'কিছু বলার নেই', 'চাওয়ার আছে অনেক কিছু কিন্তু না দিলেও কিছু বলার নেই।');
 
 -- --------------------------------------------------------
 
@@ -85,9 +124,22 @@ CREATE TABLE `box_size_11` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
   `box` int(10) NOT NULL,
+  `fraem_size` varchar(10) NOT NULL,
   `month` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `box_size_11`
+--
+
+INSERT INTO `box_size_11` (`id`, `user_id`, `box`, `fraem_size`, `month`, `location`) VALUES
+(31, 1, 12, '5', 'January', 'Dhaka'),
+(32, 1, 12, '5', '', ''),
+(33, 1, 12, '5', '', ''),
+(34, 1, 12, '5', '', ''),
+(35, 1, 45, '5', '', ''),
+(36, 1, 47, '5', '', '');
 
 -- --------------------------------------------------------
 
@@ -212,13 +264,14 @@ CREATE TABLE `fls_users` (
   `user_id` int(10) NOT NULL,
   `user_name` varchar(55) DEFAULT NULL,
   `user_pass` varchar(55) DEFAULT NULL,
+  `otp` varchar(10) NOT NULL,
   `name` varchar(55) DEFAULT NULL,
   `phone_no` varchar(15) NOT NULL,
   `nid` int(20) NOT NULL,
   `address_1` varchar(255) NOT NULL,
-  `Vibag_address` varchar(100) DEFAULT '0',
-  `zilla_address` varchar(100) DEFAULT '0',
-  `upzilla_address` varchar(100) DEFAULT '0',
+  `Vibag_address` varchar(100) DEFAULT '1',
+  `zilla_address` varchar(100) DEFAULT '1',
+  `upzilla_address` varchar(100) DEFAULT '1',
   `aponar_boys` int(3) NOT NULL,
   `your_sex` varchar(50) NOT NULL,
   `marital_status` varchar(50) NOT NULL,
@@ -235,11 +288,13 @@ CREATE TABLE `fls_users` (
 -- Dumping data for table `fls_users`
 --
 
-INSERT INTO `fls_users` (`user_id`, `user_name`, `user_pass`, `name`, `phone_no`, `nid`, `address_1`, `Vibag_address`, `zilla_address`, `upzilla_address`, `aponar_boys`, `your_sex`, `marital_status`, `fmaily_members`, `bikolp_pesha`, `educational_qualification`, `profile_pic`, `user_dregination`, `status`, `updates`) VALUES
-(1, 'tanvir', 'admin123', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'tanvirpic.jpg', 'Software Engineer', 1, '2023-11-29 02:13:36.725389'),
-(3, 'wakil', '1234', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'imran.png', 'test', 1, '2023-11-29 02:13:36.725389'),
-(6, '01843640517', '123456', 'Md Tanvir Hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'Cap22ture.JPG', '', 0, '2023-12-04 12:40:48.732501'),
-(7, '12345', '12345', 'TANVIR HASAN', '01729789114', 0, '', '6', '44', '336', 0, 'পুরুষ', 'বিবাহিত', 0, 'VCBCV', '', 'sdfsdfas.png', '', 0, '2023-12-01 14:28:45.732631');
+INSERT INTO `fls_users` (`user_id`, `user_name`, `user_pass`, `otp`, `name`, `phone_no`, `nid`, `address_1`, `Vibag_address`, `zilla_address`, `upzilla_address`, `aponar_boys`, `your_sex`, `marital_status`, `fmaily_members`, `bikolp_pesha`, `educational_qualification`, `profile_pic`, `user_dregination`, `status`, `updates`) VALUES
+(1, 'tanvir', 'admin123', '', 'Tanvir Hasan', '018436405545', 123456, 'Dhaka, Tangail', '1', '1', '1', 30, 'পুরুষ', 'বিবাহিত', 6, '', '', 'image-removebg-preview (12).png', 'Software Engineer', 1, '2023-12-22 18:11:59.968992'),
+(3, 'wakil', '1234', '', 'Tanvir Hasan', '', 0, '', '', '', '', 0, '', '', 0, '', '', 'imran.png', 'test', 1, '2023-11-29 02:13:36.725389'),
+(6, '01843640517', '123456', '5884', 'Md Tanvir Hasan', '01843640517', 654285654, 'Nutun Bazar', '6', '44', '336', 252, 'পুরুষ', 'বিধবা', 5, 'Enginner', 'Bsc in CSe', 'Cap22ture.JPG', '', 0, '2023-12-23 04:11:10.928471'),
+(7, '12345', '12345', '', 'TANVIR HASAN', '01729789114', 0, '', '6', '44', '336', 0, 'পুরুষ', 'বিবাহিত', 0, 'VCBCV', '', 'sdfsdfas.png', '', 0, '2023-12-01 14:28:45.732631'),
+(9, 'tuba', '123', '', 'Tuba', '', 0, '', '0', '0', '0', 0, '', '', 0, '', '', '', '', 0, '2023-12-21 11:20:30.050151'),
+(12, '01843640518', NULL, '6367', NULL, '', 0, '', '1', '1', '1', 0, '', '', 0, '', '', '', '', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -277,7 +332,23 @@ INSERT INTO `fuleruttso_18` (`id`, `user_id`, `udbider_name`, `somoykal`, `locat
 (13, 6, 'ধৈঞ্চা', '', '', '', ''),
 (14, 6, 'বরই', '', '', '', ''),
 (15, 6, 'অন্যান্য', '', '', '', ''),
-(16, 6, 'সুন্দরবন অন্যান্য', '', '', '', '');
+(16, 6, 'সুন্দরবন অন্যান্য', '', '', '', ''),
+(17, 1, 'সরিষা ', '', '', '', ''),
+(18, 1, 'সূর্যমুখী', '', '', '', ''),
+(19, 1, 'ধোনে', '', '', '', ''),
+(20, 1, 'কালোজিরা', '', '', '', ''),
+(21, 1, 'লিচু', '', '', '', ''),
+(22, 1, 'রাবার', '', '', '', ''),
+(23, 1, 'সুন্দরবন-১', '', '', '', ''),
+(24, 1, 'সুন্দরবন-২', '', '', '', ''),
+(25, 1, 'সুন্দরবন-৩', '', '', '', ''),
+(26, 1, 'খেসারি', '', '', '', ''),
+(27, 1, 'ভাঙ্গি', '', '', '', ''),
+(28, 1, 'তরমুজ', '', '', '', ''),
+(29, 1, 'ধৈঞ্চা', '', '', '', ''),
+(30, 1, 'বরই', '', '', '', ''),
+(31, 1, 'অন্যান্য', '', '', '', ''),
+(32, 1, 'সুন্দরবন অন্যান্য', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -308,7 +379,16 @@ INSERT INTO `khamerer_rug_13` (`id`, `user_id`, `ruger_name`, `box_sokha`, `lokk
 (6, 6, 'আমাশয়', 0, '', '', ''),
 (7, 6, 'ভাইরাস', 0, '', '', ''),
 (8, 6, 'অন্যান্য', 0, '', '', ''),
-(9, 6, 'কোন ধারনা নেই', 0, '', '', '');
+(9, 6, 'কোন ধারনা নেই', 0, '', '', ''),
+(10, 1, 'ইউরোপীয় ফাউল ব্রুড ', 0, '', '', ''),
+(11, 1, ' আমেরিকান ফাউল ব্রুড', 0, '', '', ''),
+(12, 1, 'থলি ব্রুড', 0, '', '', ''),
+(13, 1, 'চক ব্রুড', 0, '', '', ''),
+(14, 1, 'নসেমা', 0, '', '', ''),
+(15, 1, 'আমাশয়', 0, '', '', ''),
+(16, 1, 'ভাইরাস', 0, '', '', ''),
+(17, 1, 'অন্যান্য', 0, '', '', ''),
+(18, 1, 'কোন ধারনা নেই', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -366,7 +446,11 @@ INSERT INTO `ovaber_somoy_21` (`id`, `user_id`, `fid_sorborho`, `poriman_box`, `
 (1, 6, 'চিনি', 'Tanvir', 'fsdfsd', '  sdf '),
 (2, 6, 'কত্রিম পরাগ', 'sdfsddsfsd', 'sdf', ' sdf '),
 (3, 6, 'কত্রিম খাদ্য', 'fsdfdfsdf', 'fsdf', ' fsd '),
-(4, 6, 'অন্যান্য', 'sdfsdsfsdf', 'fsdd', ' sdfsdf ');
+(4, 6, 'অন্যান্য', 'sdfsdsfsdf', 'fsdd', ' sdfsdf '),
+(5, 1, 'চিনি', '12', '', ' '),
+(6, 1, 'কত্রিম পরাগ', '', '', ''),
+(7, 1, 'কত্রিম খাদ্য', '', '', ''),
+(8, 1, 'অন্যান্য', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -384,6 +468,18 @@ CREATE TABLE `paloner_jispotro_kenar_dukan_36` (
   `dukaner_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `paloner_jispotro_kenar_dukan_36`
+--
+
+INSERT INTO `paloner_jispotro_kenar_dukan_36` (`id`, `user_id`, `product`, `buy_cost`, `poriman_yearly`, `total_poriman`, `dukaner_name`) VALUES
+(1, 1, 'মৌমাছির বাক্স ', 33, '2', '100', '121'),
+(2, 1, 'মৌমাছির পালনের (হাইভ টুল, বিব্রাশ, গ্লাভস, মুখোশ, ফ্রেম, হনেয় এক্সত্রাচতর ইত্যাদি)', 42, '1', '100', '121'),
+(3, 1, 'মৌমাছির কলোনি', 42, '2', '11', '121'),
+(4, 1, 'রানী', 10, '0', '111', '121'),
+(5, 1, 'মৌমাছির খাদ্য', 10, '4', '122', '1221'),
+(6, 1, 'মৌমাছির ওষধ', 10, '1', '112', '1122');
+
 -- --------------------------------------------------------
 
 --
@@ -393,10 +489,22 @@ CREATE TABLE `paloner_jispotro_kenar_dukan_36` (
 CREATE TABLE `paloner_somsa_somadhan_26` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `somsa` int(255) NOT NULL,
-  `smomy_location` int(255) NOT NULL,
-  `howtosolv` int(255) NOT NULL
+  `somsa` varchar(255) NOT NULL,
+  `smomy_location` varchar(255) NOT NULL,
+  `howtosolv` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `paloner_somsa_somadhan_26`
+--
+
+INSERT INTO `paloner_somsa_somadhan_26` (`id`, `user_id`, `somsa`, `smomy_location`, `howtosolv`) VALUES
+(1, 1, 'sdfsd', 'sdfsdfsdfsdf', 'sdfsdf'),
+(2, 1, 'fsd', 'sdfsdfsd', 'sdfsdfsdf'),
+(3, 1, 'sdfsd', 'sdfsdfsdfsd', 'sdfsdfsdf'),
+(4, 1, 'dsf', 'sdfsdfsdf', 'dsfsdfsdfsd'),
+(5, 1, 'fdf', 'dfsdfs0fsdfsdsdf', 'sdfsdfsdfsdf'),
+(6, 1, 'fdfdfdf', 'sdfsdf', 'dsfsdfsdfsdfsdfd');
 
 -- --------------------------------------------------------
 
@@ -424,7 +532,15 @@ INSERT INTO `product_info_17` (`id`, `user_id`, `product_services`, `box_ruselt`
 (5, 6, 'মৌমাছির বিষ', 'dfsdf', 'dfsfsd'),
 (6, 6, 'প্রোপোলিস/মৌমাছির আঠা', 'dfs', 'fsdfsd'),
 (7, 6, 'পরাগায়ন', 'sdfsd', 'tanvir hasan'),
-(8, 6, 'অন্যান্য', 'fsdfsdfs', 'sdfsd');
+(8, 6, 'অন্যান্য', 'fsdfsdfs', 'sdfsd'),
+(9, 1, 'মধু ', '', ''),
+(10, 1, 'পরাগ', '', ''),
+(11, 1, 'রাজকীয় জেলি', '', ''),
+(12, 1, 'মোম', '', ''),
+(13, 1, 'মৌমাছির বিষ', '', ''),
+(14, 1, 'প্রোপোলিস/মৌমাছির আঠা', '', ''),
+(15, 1, 'পরাগায়ন', '', ''),
+(16, 1, 'অন্যান্য', '', '');
 
 -- --------------------------------------------------------
 
@@ -435,12 +551,27 @@ INSERT INTO `product_info_17` (`id`, `user_id`, `product_services`, `box_ruselt`
 CREATE TABLE `pruduct_sell_27` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `utpadon_khoroc` int(255) NOT NULL,
-  `khucra_price` int(255) NOT NULL,
-  `pakari_price` int(255) NOT NULL,
-  `potasit_price` int(255) NOT NULL,
-  `kreta_bekti` int(255) NOT NULL
+  `product_services` varchar(255) NOT NULL,
+  `utpadon_khoroc` varchar(255) NOT NULL,
+  `khucra_price` varchar(255) NOT NULL,
+  `pakari_price` varchar(255) NOT NULL,
+  `potasit_price` varchar(255) NOT NULL,
+  `kreta_bekti` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pruduct_sell_27`
+--
+
+INSERT INTO `pruduct_sell_27` (`id`, `user_id`, `product_services`, `utpadon_khoroc`, `khucra_price`, `pakari_price`, `potasit_price`, `kreta_bekti`) VALUES
+(1, 1, 'মধু ', 'dsfsdf', 'fsdfsdfsd', 'fsdfsdf', 'sdfsdfsd', 'fsdf'),
+(2, 1, 'পরাগ', 'sdfsdf', 'sdfsdfsd', 'sdfsdfsdf', 'fsdfsdf', 'dfsdf'),
+(3, 1, 'রাজকীয় জেলি', 'sdfsd', 'sdfsdf', 'sdfsdfsdf', 'fdsfds', 'fd'),
+(4, 1, 'মোম', 'fsdf', 'dsfsdf', 'sdfsdfsdf', 'sdfsdfsd', 'dsfsdf'),
+(5, 1, 'মৌমাছির বিষ', 'sdfsd', 'sdfsdf', 'sdfsdfsdf', 'dfsdfsdf', 'dsfsd'),
+(6, 1, 'প্রোপোলিস/মৌমাছির আঠা', 'fsdf', 'fsdf', 'sdfsdfsd', 'fsdfsdfs', 'fdsf'),
+(7, 1, 'পরাগায়ন', 'sdfsdf', 'fsdfsd', 'fsdfdsf', 'fsdfds', 'dsfsdfsd'),
+(8, 1, 'অন্যান্য', 'sdfsdf', 'sdfsd', 'sdfsdf', 'sdfsdfsd', 'fdsfsdfsdf');
 
 -- --------------------------------------------------------
 
@@ -456,6 +587,16 @@ CREATE TABLE `ranir_poristhi_24` (
   `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `ranir_poristhi_24`
+--
+
+INSERT INTO `ranir_poristhi_24` (`id`, `user_id`, `somsa_somadan`, `somoykal`, `location`) VALUES
+(1, 1, 'sdf', 'fsd', 'sdff'),
+(2, 1, 'dfsd', 'dfsd', 'dfdf'),
+(3, 1, 'fsdf', 'sdfs', 's'),
+(4, 1, 'sdf', 'sdf', 'fsdfsd');
+
 -- --------------------------------------------------------
 
 --
@@ -465,10 +606,20 @@ CREATE TABLE `ranir_poristhi_24` (
 CREATE TABLE `razar_poristi_25` (
   `id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `somsa_somadan` int(255) NOT NULL,
-  `somoykal` int(255) NOT NULL,
-  `location` int(255) NOT NULL
+  `somsa_somadan` varchar(255) NOT NULL,
+  `somoykal` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `razar_poristi_25`
+--
+
+INSERT INTO `razar_poristi_25` (`id`, `user_id`, `somsa_somadan`, `somoykal`, `location`) VALUES
+(1, 1, 'dsfs', 'fsdfsdf', 'dsfsdf'),
+(2, 1, 'fsdf', 'fsdf', 'dfsdf'),
+(3, 1, 'fsdfs', 'sdfs', 'fdsfs'),
+(4, 1, 'd0fsdfsdf', 'sdfsd', 'sdfsdf');
 
 -- --------------------------------------------------------
 
@@ -498,7 +649,16 @@ INSERT INTO `rogerbebostha_20` (`id`, `user_id`, `rugername`, `roge_akrantu_mash
 (6, 6, 'আমাশয়', 'sdf', 'fsd', 'sdfs'),
 (7, 6, 'ভাইরাস', 'sdfs', 'sdfsdf', 'fsdfsdf'),
 (8, 6, 'অন্যান্য', 'sdfs', 'fsdf', 'sdfsdf'),
-(9, 6, 'কোন ধারনা নেই', 'dfsd', 'sdfsdf', 'sdfsdfsdf');
+(9, 6, 'কোন ধারনা নেই', 'dfsd', 'sdfsdf', 'sdfsdfsdf'),
+(10, 1, 'ইউরোপীয় ফাউল ব্রুড ', '', '', ''),
+(11, 1, ' আমেরিকান ফাউল ব্রুড', '', '', ''),
+(12, 1, 'থলি ব্রুড', '', '', ''),
+(13, 1, 'চক ব্রুড', '', '', ''),
+(14, 1, 'নসেমা', '', '', ''),
+(15, 1, 'আমাশয়', '', '', ''),
+(16, 1, 'ভাইরাস', '', '', ''),
+(17, 1, 'অন্যান্য', '', '', ''),
+(18, 1, 'কোন ধারনা নেই', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -521,7 +681,10 @@ CREATE TABLE `traning_23` (
 INSERT INTO `traning_23` (`id`, `user_id`, `training_subject`, `somoykal`, `traning_fram`) VALUES
 (1, 6, 'sdafsdf', 'fsdfsd', 'sdfs'),
 (2, 6, 'sdfsd', 'sdfsd', 'fsdf'),
-(3, 6, 'sdfsd', 'sdfsdf', 'sdfsdfsdfsdfsd');
+(3, 6, 'sdfsd', 'sdfsdf', 'sdfsdfsdfsdfsd'),
+(4, 1, '45', '', ''),
+(5, 1, '20', '', ''),
+(6, 1, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1055,6 +1218,13 @@ ALTER TABLE `atem_to_kitpotog_19`
   ADD KEY `id` (`id`,`user_id`);
 
 --
+-- Indexes for table `ay_vey`
+--
+ALTER TABLE `ay_vey`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `box_size_11`
 --
 ALTER TABLE `box_size_11`
@@ -1185,13 +1355,19 @@ ALTER TABLE `adminx`
 -- AUTO_INCREMENT for table `atem_to_kitpotog_19`
 --
 ALTER TABLE `atem_to_kitpotog_19`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `ay_vey`
+--
+ALTER TABLE `ay_vey`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `box_size_11`
 --
 ALTER TABLE `box_size_11`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `districts`
@@ -1209,19 +1385,19 @@ ALTER TABLE `divisions`
 -- AUTO_INCREMENT for table `fls_users`
 --
 ALTER TABLE `fls_users`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `fuleruttso_18`
 --
 ALTER TABLE `fuleruttso_18`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `khamerer_rug_13`
 --
 ALTER TABLE `khamerer_rug_13`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kitpotung_porilokhito_12`
@@ -1233,55 +1409,55 @@ ALTER TABLE `kitpotung_porilokhito_12`
 -- AUTO_INCREMENT for table `ovaber_somoy_21`
 --
 ALTER TABLE `ovaber_somoy_21`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `paloner_jispotro_kenar_dukan_36`
 --
 ALTER TABLE `paloner_jispotro_kenar_dukan_36`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `paloner_somsa_somadhan_26`
 --
 ALTER TABLE `paloner_somsa_somadhan_26`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_info_17`
 --
 ALTER TABLE `product_info_17`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pruduct_sell_27`
 --
 ALTER TABLE `pruduct_sell_27`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `ranir_poristhi_24`
 --
 ALTER TABLE `ranir_poristhi_24`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `razar_poristi_25`
 --
 ALTER TABLE `razar_poristi_25`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rogerbebostha_20`
 --
 ALTER TABLE `rogerbebostha_20`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `traning_23`
 --
 ALTER TABLE `traning_23`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `upazilas`
