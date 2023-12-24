@@ -15,6 +15,10 @@ if ($datacheck == 0) {
     <div class="col-12">
         <div class="text-center bg-white table-title">
             <h2 class="p-2 m-0 pt-5">ড্রোন পরিস্থতি</h2>
+            <?php
+            $data = SelectData('razar_poristi_25', "WHERE user_id='$id_user'");
+            echo $data->fetch_object()->lastupdated;
+            ?>
             <span id="mess"></span>
         </div>
 
@@ -30,7 +34,6 @@ if ($datacheck == 0) {
 
                     <?php
                     $i = 1;
-                    $data = SelectData('razar_poristi_25', "WHERE user_id='$id_user'");
                     while ($row = $data->fetch_object()) { ?>
 
                         <tr>

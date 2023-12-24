@@ -17,6 +17,10 @@ if ($datacheck == 0) {
     <div class="col-12">
         <div class="text-center bg-white table-title">
             <h2 class="p-2 m-0 pt-5">মৌমাছির পালনের আনুষাঙ্গিক সংগ্রহের দোকান/প্রতিষ্ঠান </h2>
+            <?php
+            $data = SelectData('paloner_jispotro_kenar_dukan_36', "WHERE user_id='$id_user'");
+            echo $data->fetch_object()->lastupdated;
+            ?>
             <p id="mess"></p>
         </div>
 
@@ -34,7 +38,6 @@ if ($datacheck == 0) {
 
                     <?php
                     $i = 1;
-                    $data = SelectData('paloner_jispotro_kenar_dukan_36', "WHERE user_id='$id_user'");
                     while ($row = $data->fetch_object()) { ?>
                         <form method="POST">
                             <tr>

@@ -101,8 +101,14 @@ require_once "config/db_conn.php";
 
         <!-- জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা 11-->
 
-        <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা</h4>
+        <div class="bg-white table-title d-flex">
+            <h4 class="p-2 m-0 pt-5" style="width: 100%;"> জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা </h4>
+            <span class="p-2 m-0 pt-5" style="font-family: Arial, Helvetica, sans-serif;">
+                <?php
+                $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </span>
         </div>
 
         <table class="table table-bordered">
@@ -116,7 +122,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -131,8 +136,14 @@ require_once "config/db_conn.php";
         <div class="pagebrack"></div>
 
         <!-- অভাবের সময় ব্যবস্থাপনা 12-->
-        <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত কীটপতঙ্গ</h4>
+        <div class="bg-white table-title d-flex">
+            <h4 class="p-2 m-0 pt-5" style="width: 100%;">মৌমাছির খামারে পরিলক্ষিত কীটপতঙ্গ</h4>
+            <span class="p-2 m-0 pt-5" style="font-family: Arial, Helvetica, sans-serif;">
+                <?php
+                $data = SelectData('kitpotung_porilokhito_12', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </span>
         </div>
 
         <table class="table table-bordered">
@@ -147,7 +158,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('kitpotung_porilokhito_12', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -163,8 +173,15 @@ require_once "config/db_conn.php";
 
 
         <!-- মৌমাছির খামারে পরিলক্ষিত রোগ 13 -->
-        <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5">মৌমাছির খামারে পরিলক্ষিত রোগ</h4>
+        <div class="bg-white table-title d-flex">
+
+            <h4 class="p-2 m-0 pt-5" style="width: 100%;" >মৌমাছির খামারে পরিলক্ষিত রোগ</h4>
+            <span class=" p-2 m-0 pt-5" style="font-family: Arial, Helvetica, sans-serif;">
+                <?php
+                $data = SelectData('khamerer_rug_13', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+                </span>
 
         </div>
 
@@ -182,7 +199,6 @@ require_once "config/db_conn.php";
             <?php
 
             $i = 1;
-            $data = SelectData('khamerer_rug_13', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -200,7 +216,12 @@ require_once "config/db_conn.php";
 
         <!-- পন্য সম্পর্কিত তথ্য 17 -->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5">পন্য সম্পর্কিত তথ্য</h4>
+            <h4 class="p-2 m-0 pt-5">পন্য সম্পর্কিত তথ্য
+                <?php
+                $data = SelectData('product_info_17', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -212,7 +233,6 @@ require_once "config/db_conn.php";
             </tr>
             <?php
             $i = 1;
-            $data = SelectData('product_info_17', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -228,7 +248,12 @@ require_once "config/db_conn.php";
 
         <!-- ফুল উৎস 18-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-3">ফুল উৎস</h4>
+            <h4 class="p-2 m-0 pt-3">ফুল উৎস\
+                <?php
+                $data = SelectData('fuleruttso_18', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
 
         </div>
 
@@ -244,7 +269,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('fuleruttso_18', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
 
                 <tr>
@@ -262,7 +286,12 @@ require_once "config/db_conn.php";
 
         <!-- কীটপতঙ্গের জন্য নেওয়া ব্যবস্থা 19-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-3">কীটপতঙ্গের জন্য নেওয়া ব্যবস্থা</h4>
+            <h4 class="p-2 m-0 pt-3">কীটপতঙ্গের জন্য নেওয়া ব্যবস্থা
+                <?php
+                $data = SelectData('atem_to_kitpotog_19', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
         <table class="table table-bordered">
             <tr>
@@ -275,7 +304,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('atem_to_kitpotog_19', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -290,7 +318,12 @@ require_once "config/db_conn.php";
 
         <!-- রোগের জন্য নেওয়া ব্যবস্থা 20-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-3">রোগের জন্য নেওয়া ব্যবস্থা</h4>
+            <h4 class="p-2 m-0 pt-3">রোগের জন্য নেওয়া ব্যবস্থা
+                <?php
+                $data = SelectData('rogerbebostha_20', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -304,7 +337,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('rogerbebostha_20', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -320,7 +352,12 @@ require_once "config/db_conn.php";
 
         <!-- অভাবের সময় ব্যবস্থাপনা 21-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-3">অভাবের সময় ব্যবস্থাপনা</h4>
+            <h4 class="p-2 m-0 pt-3">অভাবের সময় ব্যবস্থাপনা
+                <?php
+                $data = SelectData('ovaber_somoy_21', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -334,7 +371,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('ovaber_somoy_21', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -349,7 +385,12 @@ require_once "config/db_conn.php";
 
         <!-- অভাবের সময় ব্যবস্থাপনা 21-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-3">প্রশিক্ষণ</h4>
+            <h4 class="p-2 m-0 pt-3">প্রশিক্ষণ
+                <?php
+                $data = SelectData('traning_23', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -362,7 +403,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('traning_23', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -377,7 +417,12 @@ require_once "config/db_conn.php";
         <!-- রানীর পরিস্থতি 24-->
 
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> রানীর পরিস্থতি</h4>
+            <h4 class="p-2 m-0 pt-5"> রানীর পরিস্থতি
+                <?php
+                $data = SelectData('ranir_poristhi_24', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -390,7 +435,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('ranir_poristhi_24', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -406,7 +450,12 @@ require_once "config/db_conn.php";
         <!-- ড্রোন পরিস্থতি 25-->
 
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> ড্রোন পরিস্থতি</h4>
+            <h4 class="p-2 m-0 pt-5"> ড্রোন পরিস্থতি
+                <?php
+                $data = SelectData('razar_poristi_25', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -419,7 +468,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('razar_poristi_25', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -435,7 +483,12 @@ require_once "config/db_conn.php";
 
         <!-- মৌমাছি পালন সংক্রান্ত সমস্যা 26-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> মৌমাছি পালন সংক্রান্ত সমস্যা</h4>
+            <h4 class="p-2 m-0 pt-5"> মৌমাছি পালন সংক্রান্ত সমস্যা
+                <?php
+                $data = SelectData('paloner_somsa_somadhan_26', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -448,7 +501,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('paloner_somsa_somadhan_26', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -464,7 +516,12 @@ require_once "config/db_conn.php";
 
         <!-- পন্য বিপণন 27-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> পন্য বিপণন</h4>
+            <h4 class="p-2 m-0 pt-5"> পন্য বিপণন
+                <?php
+                $data = SelectData('pruduct_sell_27', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered">
@@ -480,7 +537,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('pruduct_sell_27', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -499,7 +555,12 @@ require_once "config/db_conn.php";
 
         <!-- পন্য বিপণন 27-->
         <div class="bg-white table-title">
-            <h4 class="p-2 m-0 pt-5"> মৌমাছির পালনের আনুষাঙ্গিক সংগ্রহের দোকান/প্রতিষ্ঠান</h4>
+            <h4 class="p-2 m-0 pt-5"> মৌমাছির পালনের আনুষাঙ্গিক সংগ্রহের দোকান/প্রতিষ্ঠান
+                <?php
+                $data = SelectData('paloner_jispotro_kenar_dukan_36', "WHERE user_id='$id_user'");
+                echo $data->fetch_object()->lastupdated;
+                ?>
+            </h4>
         </div>
 
         <table class="table table-bordered" style="width:100%">
@@ -514,7 +575,6 @@ require_once "config/db_conn.php";
 
             <?php
             $i = 1;
-            $data = SelectData('paloner_jispotro_kenar_dukan_36', "WHERE user_id='$id_user'");
             while ($row = $data->fetch_object()) { ?>
                 <tr>
                     <td><?= $i++; ?></td>
@@ -572,8 +632,6 @@ require_once "config/db_conn.php";
 
 
 
-
-
     </div>
 
 
@@ -583,6 +641,13 @@ require_once "config/db_conn.php";
             margin: 0px;
             margin-bottom: 10px;
         }
+
+        span {
+            font-size: 12px !important;
+            text-align: right !important;
+        }
+
+
 
         body,
         h1,

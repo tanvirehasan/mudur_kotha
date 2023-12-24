@@ -14,6 +14,10 @@ if ($datacheck == 0) {
     <div class="col-12">
         <div class="text-center bg-white table-title">
             <h2 class="p-2 m-0 pt-5">রোগের জন্য নেওয়া ব্যবস্থা</h2>
+            <?php
+            $data = SelectData('rogerbebostha_20', "WHERE user_id='$id_user'");
+            echo $data->fetch_object()->lastupdated;
+            ?>
             <span id="mess"></span>
         </div>
 
@@ -30,7 +34,6 @@ if ($datacheck == 0) {
 
                     <?php
                     $i = 1;
-                    $data = SelectData('rogerbebostha_20', "WHERE user_id='$id_user'");
                     while ($row = $data->fetch_object()) { ?>
 
                         <tr>

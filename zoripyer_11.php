@@ -20,7 +20,7 @@ if ($datacheck == 0) {
             <span style="font-family:Arial, Helvetica, sans-serif;">Last Updated: 
                 <?php
                     $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
-                   echo $data->fetch_object()->lastupdated;
+                    echo $data->fetch_object()->lastupdated;
                 ?>
             </span>
             <p id="mess"></p>

@@ -13,6 +13,7 @@ $row = SelectData("ay_vey", "WHERE user_id='$id_user'")->fetch_object();
     <div class="col-12">
         <div class="card p-3">
             <span id="mess"></span>
+            
             <form method="POST" id="ay_vey" name="ay_vey" action="" enctype="multipart/form-data">
 
                 <table class="table" style="width: 100%;">
