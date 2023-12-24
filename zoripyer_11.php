@@ -14,10 +14,15 @@ if ($datacheck == 0) {
 
 
 <div class="row justify-content-md-center">
-
     <div class="col-12">
         <div class="text-center bg-white table-title">
             <h2 class="p-2 m-0 pt-5">জরিপ বছর পরিচালিত মৌমাছির বাক্সের সংখ্যা</h2>
+            <span style="font-family:Arial, Helvetica, sans-serif;">Last Updated: 
+                <?php
+                    $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
+                   echo $data->fetch_object()->lastupdated;
+                ?>
+            </span>
             <p id="mess"></p>
 
         </div>
@@ -33,9 +38,8 @@ if ($datacheck == 0) {
                     <th>অবস্থান এলাকা</th>
                 </tr>
 
-                <?php
-                $i = 1;
-                $data = SelectData('box_size_11', "WHERE user_id='$id_user'");
+
+                <?php $i = 1;
                 while ($row = $data->fetch_object()) { ?>
                     <form method="POST">
                         <tr>

@@ -1,29 +1,36 @@
 <?php
 
-function SMS_API($number, $messages)
-{
-    $number = $number;
-    $messages = $messages;
-    $url = 'http://api.greenweb.com.bd/api.php?json&token=2966070732169128405295f2776ee4a84e0c7c332b10ab173604&to=' . $number . '&message=' . rawurldecode($messages);
-    $gateway = preg_replace("/ /", "%20", $url);
-    $result = file_get_contents($gateway);
-    $decode = json_decode($result, true);
-    return $decode; // Returning decoded data
+include "config/db_conn.php";
+
+$column_name = "lastupdated";
+$column_type = "TIMESTAMP";
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
+// Get all table names in the database
+$sql = "SHOW TABLES";
+$result = $conn->query($sql);
 
-$phoneNO = '018436405';
-$otp = rand(1111, 6666);
-$messages = "Your OTP is " . $otp;
-$smsstatus = SMS_API($phoneNO, $messages);
+if ($result->num_rows > 0) {
+    // Loop through each table
+    while ($row = $result->fetch_assoc()) {
+        $table = $row["Tables_in_" . $conn];
 
-$data = $smsstatus[0];
+        // Add column to each table
+        $alter_query = "ALTER TABLE `$table` ADD `$column_name` $column_type DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
 
-echo $data['to'];
+        if ($conn->query($alter_query) === TRUE) {
+            echo "Column '$column_name' added to table '$table' successfully.<br>";
+        } else {
+            echo "Error adding column to table '$table': " . $conn->error . "<br>";
+        }
+    }
+} else {
+    echo "No tables found in the database.";
+}
 
-
-
-
-
-
-?>
+$conn->close();

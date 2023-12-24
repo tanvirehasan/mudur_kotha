@@ -21,12 +21,13 @@
                     <td><?= $row->name ?></td>
                     <td><?= $row->phone_no ?></td>
                     <td> <img src="../assets/images/faces/<?= $row->profile_pic ?>" alt=""> </td>
-                    <td><a class="" href="../print.php?id=<?= $row->user_id ?>">Print</a></td>
+                    <td>
+                        <a class="" href="../print.php?id=<?= $row->user_id ?>">Print</a> | <a class="" href="edit.php?uid=<?= $row->user_id ?>&username=<?= $row->user_name ?>">Edit</a>
+
+                    </td>
 
                 </tr>
-
             <?php } ?>
-
         </table>
     </div>
 </div>

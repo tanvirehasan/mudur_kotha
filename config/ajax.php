@@ -1,8 +1,8 @@
 <?php
-include "db_conn.php";
 
-
-
+    include "db_conn.php";
+    session_start();
+    $userid =$_SESSION['userid'];
 //Login OTP
 
 if (isset($_POST["phone_No"])) {
@@ -60,31 +60,7 @@ if (isset($_POST["phone_non"])) {
         echo "Phone Number Already Exists";
     }
 
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if (isset($_POST["Vibag_id"])) {
@@ -177,6 +153,7 @@ if (isset($_POST['id'])) {
 
 //box_size_11
 if (isset($_POST['table_id11'])) {
+    
 
     $table_id = $_POST['table_id11'];
     $box = $_POST['box'];
@@ -185,10 +162,12 @@ if (isset($_POST['table_id11'])) {
     $location = $_POST['location'];
 
     $insert = "UPDATE box_size_11 SET     
-    `box`='$box', `fraem_size`='$fraem_size', `month`='$month', `location`='$location'
-     WHERE  id='$table_id'";
+    `box`='$box', `fraem_size`='$fraem_size', `month`='$month', `location`='$location' WHERE  id='$table_id'";
 
-    if ($conn->query($insert) == TRUE) {
+    $last_update="UPDATE box_size_11 SET     
+    `lastupdated`=Now() WHERE  user_id ='$userid'";
+
+    if ($conn->query($insert) === TRUE AND $conn->query($last_update) === TRUE) {
         echo "<p class='text-success'>Success</p>";
     } else {
         echo "sorry";
